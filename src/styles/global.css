@@ -2,38 +2,45 @@
 
 /*
   Agora Data Driven — design tokens (single source of truth).
-  Upwork-inspired: confident green accent on near-black ink, airy neutrals.
-  Tailwind v4 generates utilities from these custom properties
-  (e.g. `bg-brand-500`, `text-ink`, `border-line`, `rounded-lg`, `shadow-card`).
+  Upwork-inspired green on near-black ink, airy neutrals. Type carries the
+  personality: Space Grotesk (display) + Inter (body) + Space Mono (data/labels).
+  Tailwind v4 generates utilities from these custom properties.
 */
 @theme {
   /* Brand — Upwork-style green */
   --color-brand-50: #ecfdef;
-  --color-brand-100: #d3fbdc;
-  --color-brand-200: #aaf4bd;
-  --color-brand-300: #6fe891;
-  --color-brand-400: #34d563;
+  --color-brand-100: #d1fbd8;
+  --color-brand-200: #a6f4b4;
+  --color-brand-300: #6de88c;
+  --color-brand-400: #32d65f;
   --color-brand-500: #14a800; /* primary / CTAs */
-  --color-brand-600: #108a00; /* hover / pressed */
-  --color-brand-700: #0e6e05;
-  --color-brand-800: #11570c;
-  --color-brand-900: #0f470f;
+  --color-brand-600: #0f8e00; /* hover / pressed */
+  --color-brand-700: #0c7005;
+  --color-brand-800: #0f590c;
+  --color-brand-900: #0d490f;
+
+  /* Secondary green for gradients/depth (stays in-family) */
+  --color-emerald: #0a7d3c;
 
   /* Text */
-  --color-ink: #001e00; /* headings — Upwork's signature dark green-black */
-  --color-body: #2b3328; /* body copy */
-  --color-muted: #5e6d55; /* secondary / supporting text */
+  --color-ink: #04150e; /* headings — deep green-black */
+  --color-body: #34433a; /* body copy */
+  --color-muted: #5d6c5f; /* secondary / supporting text */
 
   /* Surfaces & lines */
-  --color-canvas: #f7f9f7; /* page background */
+  --color-canvas: #f7f8f5; /* page background (warm off-white) */
   --color-surface: #ffffff; /* cards / panels */
-  --color-line: #e4ebe4; /* borders / dividers */
-  --color-tint: #e4ffe0; /* soft green wash */
+  --color-line: #e6ece4; /* hairline borders / dividers */
+  --color-tint: #e7f9e3; /* soft green wash */
 
   /* Typography */
   --font-sans:
-    'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
-    Helvetica, Arial, sans-serif;
+    'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-display:
+    'Space Grotesk Variable', 'Space Grotesk', 'Inter Variable', ui-sans-serif, system-ui,
+    sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, 'Cascadia Code', 'Menlo', monospace;
 
   /* Radii */
   --radius-sm: 0.375rem;
@@ -42,9 +49,9 @@
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
 
-  /* Elevation — subtle, low-spread */
-  --shadow-card: 0 1px 2px rgba(0, 30, 0, 0.04), 0 4px 16px rgba(0, 30, 0, 0.06);
-  --shadow-pop: 0 8px 30px rgba(0, 30, 0, 0.1);
+  /* Elevation — soft, layered */
+  --shadow-card: 0 1px 2px rgba(4, 21, 14, 0.04), 0 10px 24px -14px rgba(4, 21, 14, 0.14);
+  --shadow-pop: 0 24px 60px -28px rgba(4, 21, 14, 0.3);
 }
 
 @layer base {
@@ -65,9 +72,10 @@
   h2,
   h3,
   h4 {
+    font-family: var(--font-display);
     color: var(--color-ink);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     text-wrap: balance;
   }
 
@@ -75,14 +83,17 @@
     text-wrap: pretty;
   }
 
-  /* Visible, accessible focus for keyboard users */
+  ::selection {
+    background-color: var(--color-brand-200);
+    color: var(--color-ink);
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-brand-500);
     outline-offset: 2px;
     border-radius: 3px;
   }
 
-  /* Respect reduced-motion preferences */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -97,8 +108,26 @@
   }
 }
 
-/* Long-form article body (Markdown) */
 @layer components {
+  /* Technical, mono "data readout" eyebrow used above section titles */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-brand-600);
+  }
+
+  /* Faint graph-paper grid (atmosphere — keep low opacity) */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(4, 21, 14, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(4, 21, 14, 0.05) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+
+  /* Long-form article body (Markdown) */
   .prose {
     color: var(--color-body);
     line-height: 1.75;

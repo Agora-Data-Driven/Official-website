@@ -4,33 +4,157 @@ import Button from '@components/Button.astro';
 import { cta } from '@data/cta';
 ---
 
-<section class="relative overflow-hidden border-b border-line bg-gradient-to-b from-tint/50 to-canvas">
-  <Container class="py-20 lg:py-28">
-    <div class="max-w-3xl">
-      <span
-        class="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-sm font-medium text-brand-700"
-      >
-        <span class="h-2 w-2 rounded-full bg-brand-500"></span>
-        Data-driven marketing &amp; analytics
-      </span>
-      <h1 class="mt-5 text-4xl leading-[1.05] font-bold text-ink sm:text-5xl lg:text-6xl">
-        Analytics Powered Marketing for <span class="text-brand-600">Real Results</span>
-      </h1>
-      <p class="mt-5 max-w-2xl text-lg text-muted">
-        Data-driven businesses succeed — and we help you become one of them. We provide customized
-        data solutions that help you scale, optimize, and make smarter decisions, faster. From
-        strategy to execution, we turn insights into sales.
-      </p>
-      <p class="mt-4 max-w-2xl text-base font-medium text-ink">
-        You've built the business. Now let's grow it — working with us is not a cost, it's an
-        investment.
-      </p>
-      <div class="mt-8 flex flex-wrap gap-4">
-        <Button href={cta.becomeClient.href} external size="lg">{cta.becomeClient.label}</Button>
-        <Button href={cta.customQuote.href} external variant="secondary" size="lg">
-          {cta.customQuote.label}
-        </Button>
+<section class="relative overflow-hidden border-b border-line">
+  <!-- atmosphere: faint graph grid + soft green glow -->
+  <div
+    class="pointer-events-none absolute inset-0 bg-grid opacity-60 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_72%)]"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -top-40 -right-32 h-[34rem] w-[34rem] rounded-full bg-brand-300/20 blur-[130px]"
+  >
+  </div>
+
+  <Container class="relative py-20 lg:py-28">
+    <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+      <!-- Copy -->
+      <div>
+        <p class="eyebrow flex items-center gap-2.5">
+          <span class="h-px w-6 bg-brand-500" aria-hidden="true"></span>
+          Data-driven marketing &amp; analytics
+        </p>
+        <h1 class="mt-6 text-[2.75rem] leading-[1.02] font-bold text-ink sm:text-6xl">
+          Analytics powered marketing for <span
+            class="bg-linear-to-r from-brand-500 to-emerald bg-clip-text text-transparent"
+            >real results</span
+          >
+        </h1>
+        <p class="mt-6 max-w-xl text-lg text-muted">
+          We turn insights into sales. From strategy to execution, we help you scale, optimize, and
+          make smarter decisions—faster. Working with us isn't a cost; it's an investment.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <Button href={cta.becomeClient.href} external size="lg">{cta.becomeClient.label}</Button>
+          <Button href={cta.customQuote.href} external variant="secondary" size="lg">
+            {cta.customQuote.label}
+          </Button>
+        </div>
+
+        <div class="mt-8 flex items-center gap-3 text-sm text-muted">
+          <span class="tracking-tight text-brand-500" aria-hidden="true">★★★★★</span>
+          <span><span class="font-semibold text-ink">Top Rated</span> agency on Upwork</span>
+        </div>
+      </div>
+
+      <!-- Dashboard chart card (hero thesis: the line goes up) -->
+      <div class="relative">
+        <div class="rounded-2xl border border-line bg-surface p-5 shadow-pop sm:p-6">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs tracking-widest text-muted uppercase">Weekly sales</span>
+            <span
+              class="inline-flex items-center gap-1 rounded-full bg-tint px-2.5 py-1 font-mono text-xs font-bold text-brand-700"
+            >
+              ▲ 147%
+            </span>
+          </div>
+
+          <svg
+            class="mt-4 w-full"
+            viewBox="0 0 320 168"
+            fill="none"
+            role="img"
+            aria-label="Weekly sales trending upward from 1.7K to 4.2K dollars"
+          >
+            <defs>
+              <linearGradient id="addArea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#14a800" stop-opacity="0.22"></stop>
+                <stop offset="100%" stop-color="#14a800" stop-opacity="0"></stop>
+              </linearGradient>
+              <linearGradient id="addStroke" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#0a7d3c"></stop>
+                <stop offset="100%" stop-color="#14a800"></stop>
+              </linearGradient>
+            </defs>
+            <g stroke="#e6ece4" stroke-width="1">
+              <line x1="0" y1="36" x2="320" y2="36"></line>
+              <line x1="0" y1="84" x2="320" y2="84"></line>
+              <line x1="0" y1="132" x2="320" y2="132"></line>
+            </g>
+            <path
+              class="chart-area"
+              d="M8,140 C60,132 78,110 120,112 C168,114 196,86 232,78 C268,70 300,44 312,30 L312,160 L8,160 Z"
+              fill="url(#addArea)"></path>
+            <path
+              class="chart-line"
+              pathLength="1"
+              d="M8,140 C60,132 78,110 120,112 C168,114 196,86 232,78 C268,70 300,44 312,30"
+              stroke="url(#addStroke)"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <circle class="chart-dot" cx="312" cy="30" r="5" fill="#14a800" stroke="#ffffff" stroke-width="2"
+            ></circle>
+          </svg>
+
+          <div class="mt-4 flex items-center justify-between border-t border-line pt-4">
+            <div>
+              <div class="font-mono text-lg font-bold text-ink">
+                $1.7K <span class="text-muted">→</span> $4.2K
+              </div>
+              <div class="text-xs text-muted">Full-funnel optimization</div>
+            </div>
+            <div class="text-right">
+              <div class="font-mono text-lg font-bold text-brand-600">2.4×</div>
+              <div class="text-xs text-muted">weekly revenue</div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute -bottom-5 -left-4 hidden rounded-xl border border-line bg-surface px-4 py-3 shadow-card sm:block"
+        >
+          <div class="font-mono text-sm font-bold text-ink">2nd / 2,459</div>
+          <div class="text-[0.7rem] text-muted">Marketing analytics comp.</div>
+        </div>
       </div>
     </div>
   </Container>
 </section>
+
+<style>
+  .chart-line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: add-draw 1.8s 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .chart-area {
+    opacity: 0;
+    animation: add-fade 1s 1.5s ease-out forwards;
+  }
+  .chart-dot {
+    opacity: 0;
+    animation: add-fade 0.4s 1.9s ease-out forwards;
+  }
+  @keyframes add-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes add-fade {
+    to {
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .chart-line {
+      stroke-dashoffset: 0;
+      animation: none;
+    }
+    .chart-area,
+    .chart-dot {
+      opacity: 1;
+      animation: none;
+    }
+  }
+</style>

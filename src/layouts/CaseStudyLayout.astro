@@ -16,7 +16,7 @@ const { eyebrow, title, summary, heroImage, heroAlt, metrics } = Astro.props;
 ---
 
 <BaseLayout title={title} description={summary} ogImage={heroImage}>
-  <section class="border-b border-line bg-gradient-to-b from-tint/40 to-canvas">
+  <section class="border-b border-line bg-linear-to-b from-tint/40 to-canvas">
     <Container size="narrow" class="py-12 lg:py-16">
       <a href="/agora-portfolio/" class="text-sm font-medium text-brand-600 hover:text-brand-700"
         >&larr; Back to portfolio</a
@@ -50,7 +50,9 @@ const { eyebrow, title, summary, heroImage, heroAlt, metrics } = Astro.props;
         <div class="grid gap-4 sm:grid-cols-3">
           {metrics.map((m) => (
             <div class="rounded-2xl border border-line bg-surface p-6 text-center">
-              <div class="text-3xl font-bold text-brand-600">{m.value}</div>
+              <div class="font-mono text-3xl font-bold tracking-tight text-brand-600 tabular-nums">
+                {m.value}
+              </div>
               <div class="mt-1 text-sm text-muted">{m.label}</div>
             </div>
           ))}

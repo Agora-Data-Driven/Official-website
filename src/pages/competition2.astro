@@ -1,0 +1,13 @@
+---
+import CaseStudyLayout from '@layouts/CaseStudyLayout.astro';
+import { competitions } from '@data/portfolio';
+
+export const prerender = true;
+const c = competitions.find((x) => x.slug === 'competition2')!;
+---
+
+<CaseStudyLayout eyebrow={c.placement} title={c.title} summary={c.summary} heroImage={c.heroImage}>
+  <p><strong>Competition:</strong> {c.event}</p>
+  <p><strong>Category:</strong> {c.category}</p>
+  {c.body.map((p) => <p>{p}</p>)}
+</CaseStudyLayout>

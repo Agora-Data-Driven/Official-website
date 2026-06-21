@@ -1,0 +1,82 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/Container.astro';
+import Button from '@components/Button.astro';
+import { cta } from '@data/cta';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  summary: string;
+  heroImage?: string;
+  heroAlt?: string;
+  metrics?: { value: string; label: string }[];
+}
+const { eyebrow, title, summary, heroImage, heroAlt, metrics } = Astro.props;
+---
+
+<BaseLayout title={title} description={summary} ogImage={heroImage}>
+  <section class="border-b border-line bg-gradient-to-b from-tint/40 to-canvas">
+    <Container size="narrow" class="py-12 lg:py-16">
+      <a href="/agora-portfolio/" class="text-sm font-medium text-brand-600 hover:text-brand-700"
+        >&larr; Back to portfolio</a
+      >
+      {
+        eyebrow && (
+          <p class="mt-6 text-sm font-semibold tracking-wide text-brand-600 uppercase">{eyebrow}</p>
+        )
+      }
+      <h1 class="mt-2 text-4xl font-bold text-ink sm:text-5xl">{title}</h1>
+      <p class="mt-4 max-w-2xl text-lg text-muted">{summary}</p>
+    </Container>
+  </section>
+
+  {
+    heroImage && (
+      <Container size="narrow" class="pt-10">
+        <img
+          src={heroImage}
+          alt={heroAlt ?? ''}
+          class="aspect-[16/9] w-full rounded-2xl border border-line bg-canvas object-cover"
+          loading="eager"
+        />
+      </Container>
+    )
+  }
+
+  {
+    metrics && metrics.length > 0 && (
+      <Container size="narrow" class="pt-10">
+        <div class="grid gap-4 sm:grid-cols-3">
+          {metrics.map((m) => (
+            <div class="rounded-2xl border border-line bg-surface p-6 text-center">
+              <div class="text-3xl font-bold text-brand-600">{m.value}</div>
+              <div class="mt-1 text-sm text-muted">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    )
+  }
+
+  <Container size="narrow" class="py-10 lg:py-14">
+    <div class="prose">
+      <slot />
+    </div>
+  </Container>
+
+  <section class="border-t border-line bg-surface">
+    <Container class="py-12 text-center">
+      <h2 class="text-2xl font-bold text-ink">Want results like these?</h2>
+      <p class="mx-auto mt-2 max-w-lg text-muted">
+        Let's turn your data into sales. Get a custom quote or hire us on Upwork.
+      </p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <Button href={cta.becomeClient.href} external size="lg">{cta.becomeClient.label}</Button>
+        <Button href={cta.customQuote.href} external variant="secondary" size="lg">
+          {cta.customQuote.label}
+        </Button>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

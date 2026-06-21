@@ -15,6 +15,8 @@ export default defineConfig({
   redirects: {
     '/category/blog': '/blog/',
     '/category/blog/': '/blog/',
+    '/data-analytics-reporting': '/agora-portfolio/',
+    '/data-analytics-reporting/': '/agora-portfolio/',
   },
   // Full-stack output for GCP Cloud Run. Content pages opt into prerendering
   // with `export const prerender = true` for static-fast delivery; the Node

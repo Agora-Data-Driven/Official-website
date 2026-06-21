@@ -1,0 +1,62 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/Container.astro';
+import { getCollection } from 'astro:content';
+
+export const prerender = true;
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+);
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<BaseLayout
+  title="Blog"
+  description="Insights on data-driven marketing, analytics, and growth from Agora Data Driven."
+>
+  <section class="border-b border-line bg-gradient-to-b from-tint/40 to-canvas">
+    <Container class="py-16 lg:py-20">
+      <p class="text-sm font-semibold tracking-wide text-brand-600 uppercase">Blog</p>
+      <h1 class="mt-2 text-4xl font-bold text-ink sm:text-5xl">Latest from the blog</h1>
+      <p class="mt-3 max-w-2xl text-muted">
+        Practical insights on analytics-powered marketing, full-funnel growth, and what actually
+        moves the needle.
+      </p>
+    </Container>
+  </section>
+
+  <Container class="py-12 lg:py-16">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        posts.map((post) => (
+          <article class="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-card transition-shadow hover:shadow-pop">
+            {post.data.heroImage && (
+              <a href={`/${post.id}/`} class="block">
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.heroAlt ?? ''}
+                  class="aspect-[16/9] w-full bg-canvas object-cover"
+                  loading="lazy"
+                />
+              </a>
+            )}
+            <div class="flex flex-1 flex-col p-6">
+              <p class="text-xs font-semibold tracking-wide text-brand-600 uppercase">
+                {post.data.category}
+              </p>
+              <h2 class="mt-2 text-lg font-semibold text-ink">
+                <a href={`/${post.id}/`} class="hover:text-brand-700">
+                  {post.data.title}
+                </a>
+              </h2>
+              <p class="mt-2 flex-1 text-sm text-muted">{post.data.excerpt}</p>
+              <p class="mt-4 text-xs text-muted">{fmt(post.data.publishDate)}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Container>
+</BaseLayout>

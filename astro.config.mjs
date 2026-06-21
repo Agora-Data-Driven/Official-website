@@ -11,6 +11,11 @@ const SITE = 'https://agoradatadriven.com';
 // https://astro.build/config
 export default defineConfig({
   site: SITE,
+  // SEO redirects (old WordPress URLs -> new). 301 by default.
+  redirects: {
+    '/category/blog': '/blog/',
+    '/category/blog/': '/blog/',
+  },
   // Full-stack output for GCP Cloud Run. Content pages opt into prerendering
   // with `export const prerender = true` for static-fast delivery; the Node
   // server provides headroom for future dynamic routes.

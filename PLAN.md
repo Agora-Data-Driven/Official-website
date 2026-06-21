@@ -247,6 +247,7 @@ Each phase: run dev server, verify render + responsiveness, commit logically. No
 - **Portfolio "trust" logos:** 7 client logos with no names — identify them (and confirm permission), or I'll drop the strip.
 - **Upwork "Job Success Rate"** shows **0%** on the live site (clearly wrong/placeholder) — supply the real figure (e.g. JSS %, Top Rated, total earned) or I'll omit the stat.
 - **Real portfolio media** to replace any remaining demo imagery, if available.
+- **"How Video Marketing Boosts Engagement and Sales" post:** the live page's body is duplicated from the product-launch article (it doesn't actually cover video marketing). Migrated as a **draft** (excluded from blog/sitemap) to avoid reproducing duplicate content. Supply the real article copy to publish it.
 
 ---
 

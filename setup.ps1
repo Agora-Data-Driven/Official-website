@@ -1,17 +1,17 @@
 # =============================================================================
-#  Agora Data Driven — one-shot machine setup (Windows / PowerShell)
+#  Agora Data Driven - one-shot machine setup (Windows / PowerShell)
 #
 #  Run this once on any Windows machine after `git clone`:
 #      powershell -ExecutionPolicy Bypass -File .\setup.ps1
 #
 #  It will:
-#    1. Install Node.js LTS   (if missing — expect a Windows UAC prompt: click Yes)
+#    1. Install Node.js LTS   (if missing - expect a Windows UAC prompt: click Yes)
 #    2. Install the gcloud CLI (if missing)
 #    3. Log you into Google Cloud + select the project/region
 #    4. Enable the required GCP APIs
-#    5. Install project dependencies (npm install  ->  node_modules/)
+#    5. Install project dependencies (npm install  =>  node_modules/)
 #
-#  NOTE: this is a Node project — there is no Python "venv". The local
+#  NOTE: this is a Node project - there is no Python "venv". The local
 #  dependency environment is node_modules/, created by `npm install`.
 # =============================================================================
 
@@ -42,7 +42,7 @@ if (-not (Test-Path '.\package.json')) {
 }
 
 if (-not (Have winget)) {
-  Write-Host "ERROR: 'winget' not found. Update Windows / install App Installer from the Microsoft Store, then re-run." -ForegroundColor Red
+  Write-Host "ERROR: 'winget' not found. Install 'App Installer' from the Microsoft Store, then re-run." -ForegroundColor Red
   exit 1
 }
 
@@ -51,7 +51,7 @@ Step "Checking Node.js"
 if (Have node) {
   Write-Host "   Node already installed: $(node -v)"
 } else {
-  Write-Host "   Installing Node.js LTS (a UAC prompt will appear — click Yes)..."
+  Write-Host "   Installing Node.js LTS (a UAC prompt will appear - click Yes)..."
   winget install --id OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements
   Refresh-Path
   if (-not (Have node)) {

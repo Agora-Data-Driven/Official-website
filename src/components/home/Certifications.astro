@@ -2,44 +2,152 @@
 import Container from '@components/Container.astro';
 import SectionHeading from '@components/SectionHeading.astro';
 import { certifications } from '@data/certifications';
+
+// Render the list twice for a seamless marquee loop; the second copy is hidden
+// from assistive tech and keyboard focus.
+const loop = [...certifications, ...certifications];
+const realCount = certifications.length;
 ---
 
-<section class="border-b border-line bg-surface py-16 lg:py-20">
+<section class="overflow-hidden border-b border-line bg-surface py-16 lg:py-20">
   <Container>
     <SectionHeading eyebrow="Certified expertise" title="Credentials you can verify" align="center">
       <p class="mt-3 text-muted">
         Real, verifiable certifications in data science, analytics, and media buying — from IBM,
-        Google, Meta, and Intuit.
+        Google, Meta, and Intuit. Drag or scroll to browse.
       </p>
     </SectionHeading>
+  </Container>
 
-    <ul class="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">
+  <div class="relative mt-12">
+    <div
+      class="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-linear-to-r from-surface to-transparent sm:w-20"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-linear-to-l from-surface to-transparent sm:w-20"
+    >
+    </div>
+
+    <div id="cert-track" class="cert-track flex gap-4 overflow-x-auto px-5 sm:gap-6 sm:px-6">
       {
-        certifications.map((c) => {
+        loop.map((c, i) => {
+          const dup = i >= realCount;
           const Tag = c.url ? 'a' : 'div';
           return (
-            <li>
-              <Tag
-                class="group flex h-full flex-col items-center justify-center gap-3 rounded-2xl border border-line bg-surface p-5 text-center transition-shadow hover:shadow-card"
-                href={c.url}
-                target={c.url ? '_blank' : undefined}
-                rel={c.url ? 'noopener noreferrer' : undefined}
-              >
-                <img
-                  src={c.image}
-                  alt={`${c.name} certification badge`}
-                  width="200"
-                  height="200"
-                  loading="lazy"
-                  decoding="async"
-                  class="h-24 w-auto object-contain transition-transform duration-200 group-hover:scale-105 sm:h-28"
-                />
-                <span class="text-xs font-medium text-muted">{c.name}</span>
-              </Tag>
-            </li>
+            <Tag
+              class="group flex w-40 shrink-0 flex-col items-center justify-center gap-3 rounded-2xl border border-line bg-surface p-5 text-center transition-shadow hover:shadow-card sm:w-44"
+              href={c.url}
+              target={c.url ? '_blank' : undefined}
+              rel={c.url ? 'noopener noreferrer' : undefined}
+              aria-hidden={dup ? 'true' : undefined}
+              tabindex={dup ? -1 : undefined}
+            >
+              <img
+                src={c.image}
+                alt={dup ? '' : `${c.name} certification badge`}
+                width="200"
+                height="200"
+                loading="lazy"
+                decoding="async"
+                draggable="false"
+                class="pointer-events-none h-24 w-auto object-contain transition-transform duration-200 group-hover:scale-105 sm:h-28"
+              />
+              <span class="text-xs font-medium text-muted">{c.name}</span>
+            </Tag>
           );
         })
       }
-    </ul>
-  </Container>
+    </div>
+  </div>
 </section>
+
+<style>
+  .cert-track {
+    cursor: grab;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: auto;
+  }
+  .cert-track::-webkit-scrollbar {
+    display: none;
+  }
+  .cert-track.is-grabbing {
+    cursor: grabbing;
+  }
+</style>
+
+<script>
+  const track = document.getElementById('cert-track');
+  if (track) {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let paused = false;
+    let down = false;
+    let moved = false;
+    let startX = 0;
+    let startScroll = 0;
+
+    const half = () => track.scrollWidth / 2;
+    const wrap = () => {
+      const h = half();
+      if (h > 0 && track.scrollLeft >= h) track.scrollLeft -= h;
+    };
+
+    // pause auto-slide on hover
+    track.addEventListener('pointerenter', () => (paused = true));
+    track.addEventListener('pointerleave', () => {
+      if (!down) paused = false;
+    });
+
+    // drag-to-scroll (desktop) + swipe (touch is native, but this unifies)
+    track.addEventListener('pointerdown', (e) => {
+      down = true;
+      moved = false;
+      paused = true;
+      startX = e.clientX;
+      startScroll = track.scrollLeft;
+      track.classList.add('is-grabbing');
+      try {
+        track.setPointerCapture(e.pointerId);
+      } catch {}
+    });
+    track.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 5) moved = true;
+      track.scrollLeft = startScroll - dx;
+    });
+    const endDrag = () => {
+      if (!down) return;
+      down = false;
+      paused = false;
+      track.classList.remove('is-grabbing');
+      // suppress the click that follows a real drag so links don't fire
+      if (moved) {
+        const block = (ev: Event) => {
+          ev.preventDefault();
+          ev.stopPropagation();
+        };
+        track.addEventListener('click', block, { capture: true, once: true });
+        setTimeout(() => track.removeEventListener('click', block, true), 50);
+      }
+    };
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+
+    // keep manual touch/trackpad scrolling seamless
+    track.addEventListener('scroll', wrap, { passive: true });
+
+    if (!reduce) {
+      const speed = 0.35; // px/frame — slow drift
+      const step = () => {
+        if (!paused) {
+          track.scrollLeft += speed;
+          wrap();
+        }
+        requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+  }
+</script>

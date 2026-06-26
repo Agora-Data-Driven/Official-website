@@ -70,11 +70,10 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
-    /* Declare real support for both schemes so browsers (Chrome Android,
-       Samsung Internet, etc.) render our designed dark palette below instead of
-       crudely force-darkening a light-only page — which mangled the clipped
-       gradient text. UA controls/scrollbars follow the user's preference too. */
-    color-scheme: light dark;
+    /* Light-only site: render the white/minimalist palette for everyone and tell
+       browsers NOT to force-dark it, regardless of the visitor's OS/browser dark
+       preference. (The site has no dark theme; see note at end of file.) */
+    color-scheme: light;
   }
 
   body {
@@ -364,61 +363,11 @@
 }
 
 /* ===========================================================================
-   Dark theme — honours the OS/browser dark preference with a designed deep
-   green-black palette (not a crude force-dark inversion). Because every
-   component is token-driven, remapping the design tokens here cascades dark
-   mode site-wide; only a few non-token bits need explicit handling.
-
-   Intentionally UNLAYERED and last in source order so it overrides the @theme
-   token defaults regardless of how Tailwind layers them.
+   No dark theme. This site is intentionally light-only — a white, minimalist
+   palette with bold black type and green reserved for CTAs/accents. We do NOT
+   honour `prefers-color-scheme: dark`; `color-scheme: light` (set on <html>
+   above and via the BaseLayout meta) tells browsers to render the light palette
+   for everyone and not force-dark it. The `.surface-dark` utility is a
+   deliberate dark *accent band* used within otherwise-light pages — it is not a
+   dark mode.
    =========================================================================== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Surfaces & lines — deep green-black, cards lifted off the page */
-    --color-canvas: #0a1712; /* page background */
-    --color-surface: #102219; /* cards / panels (lifted) */
-    --color-line: #21392c; /* hairline borders / dividers */
-    --color-tint: #14271c; /* soft green wash (blockquotes, table heads) */
-
-    /* Text — near-white headings, soft green-gray body */
-    --color-ink: #f1f6f1;
-    --color-body: #c2cfc5;
-    --color-muted: #8b9a8e;
-
-    /* Brand greens used as TEXT must lift to read on dark; brand-500 stays the
-       CTA fill (green button + white text, as in light mode). */
-    --color-brand-600: #5cb657;
-    --color-brand-700: #74bd6e;
-
-    /* Elevation — near-black shadows vanish on dark, so deepen them. */
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 28px -16px rgba(0, 0, 0, 0.7);
-    --shadow-pop: 0 28px 64px -28px rgba(0, 0, 0, 0.8);
-  }
-
-  /* Faint atmosphere grid: dark lines vanish on dark — use light lines. */
-  .bg-grid {
-    background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  }
-
-  /* The headline accent is a *background* gradient clipped to the text, so it
-     must use the bright stops on dark. (Restate the clip — the `background`
-     shorthand resets background-clip.) */
-  .text-gradient {
-    background: linear-gradient(100deg, var(--color-brand-300), var(--color-brand-400) 55%, #9bd39a);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-
-  /* Monochrome dark wordmark would disappear on dark — flip it to light. */
-  img[src$='agora-logo.png'] {
-    filter: invert(1) brightness(1.05);
-  }
-
-  /* Keep text selection legible against the near-white ink. */
-  ::selection {
-    background-color: var(--color-brand-300);
-    color: #06140d;
-  }
-}

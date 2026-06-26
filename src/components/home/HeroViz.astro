@@ -57,9 +57,19 @@
       const GREEN_D = '#2f7a3a';
       const GREEN_L = '#9bd39a';
       const PURPLE = '#6a6aea';
-      const GRID = '#e9eaec';
-      const MUT = '#aab0a9';
-      const IDLE = '#cfd6cf';
+      // Structural (non-accent) colors follow the page theme so the inactive
+      // scaffolding stays quiet on dark cards instead of glaring light-on-dark.
+      const themeMq = window.matchMedia('(prefers-color-scheme: dark)');
+      let GRID = '#e9eaec';
+      let MUT = '#aab0a9';
+      let IDLE = '#cfd6cf';
+      const applyTheme = () => {
+        const d = themeMq.matches;
+        GRID = d ? '#2c4a37' : '#e9eaec';
+        MUT = d ? '#7e8f82' : '#aab0a9';
+        IDLE = d ? '#33503e' : '#cfd6cf';
+      };
+      applyTheme();
 
       let w = 0;
       let h = 0;
@@ -357,6 +367,16 @@
       else window.addEventListener('resize', resize);
 
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Re-resolve theme colors if the OS/browser scheme flips while open. The
+      // animated loop reads the colors each frame; the static frame must redraw.
+      themeMq.addEventListener?.('change', () => {
+        applyTheme();
+        if (reduce) {
+          ctx.clearRect(0, 0, w, h);
+          neuralNet(0.5, 600);
+        }
+      });
 
       if (reduce) {
         ctx.clearRect(0, 0, w, h);

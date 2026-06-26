@@ -18,7 +18,7 @@ const fmt = (d: Date) =>
 >
   <section class="border-line from-tint/40 to-canvas border-b bg-linear-to-b">
     <Container class="py-16 lg:py-20">
-      <p class="text-brand-600 text-sm font-semibold tracking-wide uppercase">Blog</p>
+      <p class="eyebrow">Blog</p>
       <h1 class="text-ink mt-2 text-4xl font-bold sm:text-5xl">Latest from the blog</h1>
       <p class="text-muted mt-3 max-w-2xl">
         Practical insights on analytics-powered marketing, full-funnel growth, and what actually
@@ -28,32 +28,20 @@ const fmt = (d: Date) =>
   </section>
 
   <Container class="py-12 lg:py-16">
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {
         posts.map((post) => (
-          <article class="border-line bg-surface shadow-card hover:shadow-pop flex flex-col overflow-hidden rounded-2xl border transition-shadow">
-            {post.data.heroImage && (
-              <a href={`/${post.id}/`} class="block">
-                <img
-                  src={post.data.heroImage}
-                  alt={post.data.heroAlt ?? ''}
-                  class="bg-canvas aspect-[16/9] w-full object-cover"
-                  loading="lazy"
-                />
+          <article class="border-line bg-surface shadow-card card-hover flex flex-col rounded-2xl border p-6">
+            <p class="text-brand-600 text-xs font-semibold tracking-wide uppercase">
+              {post.data.category}
+            </p>
+            <h2 class="text-ink mt-2 text-lg font-semibold">
+              <a href={`/${post.id}/`} class="hover:text-brand-700">
+                {post.data.title}
               </a>
-            )}
-            <div class="flex flex-1 flex-col p-6">
-              <p class="text-brand-600 text-xs font-semibold tracking-wide uppercase">
-                {post.data.category}
-              </p>
-              <h2 class="text-ink mt-2 text-lg font-semibold">
-                <a href={`/${post.id}/`} class="hover:text-brand-700">
-                  {post.data.title}
-                </a>
-              </h2>
-              <p class="text-muted mt-2 flex-1 text-sm">{post.data.excerpt}</p>
-              <p class="text-muted mt-4 text-xs">{fmt(post.data.publishDate)}</p>
-            </div>
+            </h2>
+            <p class="text-muted mt-2 flex-1 text-sm">{post.data.excerpt}</p>
+            <p class="text-muted mt-4 text-xs">{fmt(post.data.publishDate)}</p>
           </article>
         ))
       }

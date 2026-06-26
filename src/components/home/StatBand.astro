@@ -21,11 +21,6 @@ const stats: Stat[] = [
     sub: 'Upwork',
   },
   {
-    text: 'Top Rated',
-    label: 'Upwork status',
-    sub: 'Verified badge',
-  },
-  {
     target: 10,
     label: 'Years in the industry',
     sub: 'Hands-on experience',
@@ -70,7 +65,7 @@ const display = (s: Stat) =>
       </p>
     </div>
 
-    <dl class="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-8">
+    <dl class="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-x-8">
       {
         stats.map((s, i) => (
           <div class="reveal" style={`--reveal-delay: ${i * 90}ms`}>

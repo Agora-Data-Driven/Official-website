@@ -1,5 +1,7 @@
 # Agora Data Driven — Rebuild Plan
 
+> **📁 ARCHIVED (historical).** This is the original pre-build planning document. The site has since been built and is live — see [README.md](../README.md) for the current state and [CLAUDE.md](../CLAUDE.md) for conventions. Kept for its content audit, redirect rationale, and open "NEEDS INPUT" items. Some sections describe ideas that were **not** implemented as written (e.g. `caseStudies`/`competitions` content collections — these became bespoke `.astro` pages — and a `tailwind.config`, since Tailwind v4 uses `@theme` in `src/styles/global.css`).
+
 > Rebuild of **agoradatadriven.com** (WordPress + Elementor) as a clean, fast, maintainable coded site in an Upwork-inspired aesthetic. This document is the build contract: audit findings, stack, sitemap, content model, redirect map, design tokens, and phase order. **Status: awaiting approval before scaffolding.**
 
 ---

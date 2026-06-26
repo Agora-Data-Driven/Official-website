@@ -2,7 +2,7 @@
  * FAQ — real Q&A from the live site (homepage versions, which have the genuine
  * distinct answers). The live "typical project timeline" item only had a
  * duplicated placeholder answer, so it's omitted rather than reproduced as
- * cruft. (See PLAN.md NEEDS INPUT: supply a real timeline answer to add it back.)
+ * cruft. (See docs/PLAN.md NEEDS INPUT: supply a real timeline answer to add it back.)
  */
 export interface Faq {
   question: string;

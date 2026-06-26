@@ -13,7 +13,7 @@ NEEDS INPUT: On the live WordPress site, this post's body was duplicated from
 the "How to Launch a Product Online" article (it does not actually discuss video
 marketing). We won't reproduce duplicate content or fabricate an article, so this
 post is kept as a draft (excluded from the blog and sitemap) until the real
-video-marketing copy is provided. See PLAN.md → NEEDS INPUT.
+video-marketing copy is provided. See docs/PLAN.md → NEEDS INPUT.
 -->
 
 This article is being prepared. Please provide the final copy for "How Video Marketing Boosts Engagement and Sales."

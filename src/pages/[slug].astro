@@ -5,8 +5,17 @@ import PostLayout from '@layouts/PostLayout.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
+  // The flagship "LED Wall" story has a bespoke, art-directed landing page at
+  // src/pages/building-an-authentic-brand-identity.astro, so it opts out of the
+  // generic PostLayout route here (its Markdown stays the source of truth for
+  // the blog listing card + SEO frontmatter). Excluding it avoids a
+  // duplicate-route build collision on the shared slug. Declared inside
+  // getStaticPaths — Astro evaluates this function in isolation from module scope.
+  const bespokeSlugs = new Set(['building-an-authentic-brand-identity']);
   const posts = await getCollection('posts', ({ data }) => !data.draft);
-  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+  return posts
+    .filter((post) => !bespokeSlugs.has(post.id))
+    .map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 
 const { post } = Astro.props;

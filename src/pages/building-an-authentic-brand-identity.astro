@@ -1,0 +1,691 @@
+---
+/**
+ * Bespoke, art-directed landing page for the flagship "LED Wall" story.
+ *
+ * Why a dedicated page (not PostLayout): this article is linked from the primary
+ * nav as "LED Wall" and is the agency's strongest proof-of-work narrative. It
+ * earns a landing-page treatment — cinematic hero, stat band, story sections,
+ * industries showcase, and a conversion CTA — rather than the generic blog
+ * column. The Markdown file stays the single source of truth for the blog
+ * listing card + SEO frontmatter; this page reads that frontmatter via getEntry,
+ * and [slug].astro excludes the slug so there's no duplicate-route collision.
+ *
+ * All copy is drawn from the real article — no invented metrics. The "6
+ * industries" figure is the count of verticals named in the Results section.
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/Container.astro';
+import Button from '@components/Button.astro';
+import { cta } from '@data/cta';
+import { site } from '@data/site';
+import { getSilo } from '@data/categories';
+import { getEntry } from 'astro:content';
+
+export const prerender = true;
+
+const post = await getEntry('posts', 'building-an-authentic-brand-identity');
+if (!post) throw new Error('Missing post: building-an-authentic-brand-identity');
+
+const { title, excerpt, publishDate, updatedDate, category } = post.data;
+const silo = category ? getSilo(category) : undefined;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const canonical = new URL(Astro.url.pathname, site.url).href;
+
+// Breadcrumb trail (rendered custom over the dark hero) + matching JSON-LD.
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Blog', href: '/blog/' },
+  ...(silo ? [{ label: silo.name, href: `/blog/category/${silo.slug}/` }] : []),
+  { label: title },
+];
+
+// --- Page content model (all real, from the article) ----------------------
+
+const stats = [
+  { value: 'Thousands', label: 'Reached daily', sub: 'High-traffic placement' },
+  { value: '6', label: 'Industries booked', sub: 'In the first month' },
+  { value: 'Month 1', label: 'First bookings live', sub: 'Real paying advertisers' },
+  { value: '1 screen', label: 'A repeatable playbook', sub: 'Proven, then offered out' },
+];
+
+const industries = ['Food & Beverage', 'Music', 'Pharmacy', 'Beauty', 'Printing', 'Influencers'];
+
+const strategy = [
+  {
+    tag: 'Creative',
+    title: 'Content-driven presentation',
+    body: 'High-quality visuals showed the wall displaying live ads and capturing foot traffic across different times of day — proof the screen works, not just a render.',
+  },
+  {
+    tag: 'Demand',
+    title: 'Targeted social media ads',
+    body: 'Facebook campaigns reached business owners in food, retail, health, beauty, music, and events with one clear message: “Want your ad here? Message us to book your slot.”',
+  },
+];
+
+const pillars = [
+  {
+    title: 'Ad consultation',
+    body: 'We help advertisers shape a message that actually lands on a moving, glanceable screen.',
+  },
+  {
+    title: 'Strategic scheduling',
+    body: 'Slots are placed during peak foot-traffic windows, so spend buys attention — not dead air.',
+  },
+  {
+    title: 'Cross-promotion',
+    body: 'Each booking is amplified across our social channels, stretching reach beyond the street.',
+  },
+  {
+    title: 'Performance tracking',
+    body: 'We report back with actionable insights, so advertisers see what worked and what to run next.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description: excerpt,
+  datePublished: publishDate.toISOString(),
+  ...(updatedDate ? { dateModified: updatedDate.toISOString() } : {}),
+  author: { '@type': 'Organization', name: site.name, url: site.url },
+  publisher: { '@type': 'Organization', name: site.name, url: site.url },
+  mainEntityOfPage: canonical,
+};
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    item: c.href ? new URL(c.href, site.url).href : canonical,
+  })),
+};
+---
+
+<BaseLayout title={title} description={excerpt} type="article">
+  <article>
+    <!-- ============================================================ HERO -->
+    <header class="surface-dark relative overflow-hidden">
+      <div class="dot-grid-dark pointer-events-none absolute inset-0 opacity-50" aria-hidden="true">
+      </div>
+      <div
+        class="glow-pulse bg-brand-500/25 pointer-events-none absolute -top-40 -right-24 h-[34rem] w-[34rem] rounded-full blur-[130px]"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="glow-pulse bg-accent-500/15 pointer-events-none absolute -bottom-48 -left-24 h-[30rem] w-[30rem] rounded-full blur-[130px]"
+        style="animation-delay: -4.5s"
+        aria-hidden="true"
+      >
+      </div>
+
+      <Container size="wide" class="relative pt-8 pb-20 lg:pt-10 lg:pb-28">
+        <!-- Custom light-on-dark breadcrumb (component is tuned for light bg) -->
+        <nav aria-label="Breadcrumb" class="reveal">
+          <ol class="flex flex-wrap items-center gap-1.5 text-sm text-white/55">
+            {
+              crumbs.map((c, i) => (
+                <li class="flex items-center gap-1.5">
+                  {c.href && i < crumbs.length - 1 ? (
+                    <a href={c.href} class="hover:text-brand-300 transition-colors">
+                      {c.label}
+                    </a>
+                  ) : (
+                    <span class="font-medium text-white/80" aria-current="page">
+                      {c.label}
+                    </span>
+                  )}
+                  {i < crumbs.length - 1 && <span aria-hidden="true">/</span>}
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
+
+        <div class="mt-10 grid items-center gap-14 lg:mt-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <!-- Copy -->
+          <div>
+            <p
+              class="reveal border-brand-400/30 bg-brand-500/10 text-brand-300 inline-flex items-center gap-2 rounded-full border py-1.5 pr-4 pl-2.5 text-xs font-semibold tracking-wide uppercase backdrop-blur"
+            >
+              <span
+                class="bg-brand-400 grid h-4 w-4 place-items-center rounded-full"
+                aria-hidden="true"
+              >
+                <span class="h-1.5 w-1.5 rounded-full bg-white"></span>
+              </span>
+              {silo?.name ?? 'Strategy & Growth'} · Field Story
+            </p>
+
+            <h1
+              class="reveal mt-6 text-4xl leading-[1.03] font-bold text-white sm:text-5xl lg:text-[4.25rem]"
+              style="--reveal-delay: 80ms"
+            >
+              From Display to
+              <span class="text-gradient-bright block">Demand.</span>
+            </h1>
+
+            <p class="reveal mt-6 max-w-xl text-lg text-white/70" style="--reveal-delay: 160ms">
+              {excerpt}
+            </p>
+
+            <div class="reveal mt-8 flex flex-wrap gap-4" style="--reveal-delay: 240ms">
+              <Button href={cta.becomeClient.href} external size="lg">Book a slot</Button>
+              <a
+                href="#story"
+                class="group inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-base font-semibold text-white backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40"
+              >
+                Read the story
+                <span
+                  class="transition-transform duration-200 group-hover:translate-y-0.5"
+                  aria-hidden="true">↓</span
+                >
+              </a>
+            </div>
+
+            <div
+              class="reveal mt-9 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/55"
+              style="--reveal-delay: 320ms"
+            >
+              <span class="flex items-center gap-2">
+                <span class="bg-brand-400 h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
+                <time datetime={publishDate.toISOString()}>{fmt(publishDate)}</time>
+              </span>
+              <span class="hidden h-4 w-px bg-white/15 sm:block" aria-hidden="true"></span>
+              <span>3 min read</span>
+              <span class="hidden h-4 w-px bg-white/15 sm:block" aria-hidden="true"></span>
+              <span>Owned-media case study</span>
+            </div>
+          </div>
+
+          <!-- Simulated LED wall (pure CSS, decorative) -->
+          <div class="reveal relative" style="--reveal-delay: 200ms" aria-hidden="true">
+            <div
+              class="glow-pulse bg-brand-400/25 pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] blur-3xl"
+            >
+            </div>
+
+            <div class="led-frame">
+              <div class="led-screen">
+                <div class="led-grid"></div>
+                <div class="led-sweep"></div>
+                <div class="led-content">
+                  <span class="led-eyebrow">NOW SHOWING</span>
+                  <span class="led-headline">YOUR AD<br />HERE</span>
+                  <span class="led-cta">
+                    <span class="led-dot"></span> MESSAGE US TO BOOK YOUR SLOT
+                  </span>
+                </div>
+              </div>
+              <div class="led-stand"></div>
+            </div>
+
+            <!-- Floating proof chips, echoing the home hero -->
+            <div
+              class="border-line bg-surface shadow-pop absolute -bottom-5 -left-3 hidden rounded-xl border px-4 py-3 sm:block"
+            >
+              <div class="font-display text-brand-600 text-sm font-bold">6 industries</div>
+              <div class="text-muted text-[0.7rem]">Booked in month one</div>
+            </div>
+            <div
+              class="border-line bg-surface shadow-pop absolute -top-5 -right-3 hidden rounded-xl border px-4 py-3 md:block"
+            >
+              <div class="font-display text-accent-600 text-sm font-bold">Live ↗</div>
+              <div class="text-muted text-[0.7rem]">Real paying advertisers</div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </header>
+
+    <!-- ====================================================== STAT BAND -->
+    <section class="surface-dark border-night-600 relative overflow-hidden border-y">
+      <div class="dot-grid-dark pointer-events-none absolute inset-0 opacity-40" aria-hidden="true">
+      </div>
+      <Container size="wide" class="relative py-12 lg:py-14">
+        <dl class="grid grid-cols-2 gap-x-6 gap-y-9 lg:grid-cols-4 lg:gap-x-8">
+          {
+            stats.map((s, i) => (
+              <div class="reveal" style={`--reveal-delay: ${i * 90}ms`}>
+                <dt class="sr-only">{s.label}</dt>
+                <dd>
+                  <span class="font-display text-gradient-bright text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                    {s.value}
+                  </span>
+                  <p class="font-display mt-3 text-sm font-semibold text-white">{s.label}</p>
+                  <p class="mt-1 text-xs text-white/55">{s.sub}</p>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </Container>
+    </section>
+
+    <!-- ========================================================= INTRO -->
+    <section id="story" class="scroll-mt-24 py-16 lg:py-24">
+      <Container size="narrow">
+        <p class="eyebrow reveal">The brief</p>
+        <p
+          class="reveal text-ink mt-5 text-2xl leading-snug font-semibold sm:text-[1.75rem] sm:leading-snug"
+          style="--reveal-delay: 80ms"
+        >
+          When we invested in an LED wall, the goal went beyond displaying ads — it was to produce
+          <span class="text-gradient">measurable outcomes</span>. Positioned in a high-traffic spot,
+          the wall reached thousands of people daily.
+        </p>
+        <p class="reveal text-muted mt-5 text-lg" style="--reveal-delay: 140ms">
+          The critical question became: how do we turn visibility into value — not just for us, but
+          for our future clients?
+        </p>
+      </Container>
+    </section>
+
+    <!-- ====================================== VISION: more than a billboard -->
+    <section class="border-line bg-surface border-y py-16 lg:py-24">
+      <Container size="wide">
+        <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div class="reveal">
+            <p class="eyebrow">The vision</p>
+            <h2 class="text-ink mt-4 text-3xl font-bold sm:text-[2.6rem] sm:leading-[1.05]">
+              More than a billboard
+            </h2>
+            <p class="text-muted mt-5 text-lg">
+              It's easy to think of an LED wall as just a bigger billboard. We saw it differently.
+              Owning the screen meant we could test, measure, and prove what actually drives
+              advertising results — then offer that same playbook to local businesses.
+            </p>
+          </div>
+
+          <!-- Billboard vs. owned channel contrast -->
+          <div class="reveal grid gap-4 sm:grid-cols-2" style="--reveal-delay: 120ms">
+            <div class="border-line bg-canvas rounded-2xl border p-6">
+              <p class="text-muted text-xs font-semibold tracking-wide uppercase">
+                A rented billboard
+              </p>
+              <ul class="text-muted mt-4 space-y-3 text-sm">
+                <li class="flex gap-2"><span aria-hidden="true">—</span> Pay, post, and hope</li>
+                <li class="flex gap-2"><span aria-hidden="true">—</span> No feedback loop</li>
+                <li class="flex gap-2"><span aria-hidden="true">—</span> Static, set-and-forget</li>
+              </ul>
+            </div>
+            <div
+              class="border-brand-300 bg-tint shadow-glow-sm relative overflow-hidden rounded-2xl border p-6"
+            >
+              <p class="text-brand-700 text-xs font-semibold tracking-wide uppercase">
+                An owned channel
+              </p>
+              <ul class="text-body mt-4 space-y-3 text-sm font-medium">
+                <li class="flex gap-2">
+                  <span class="text-brand-500" aria-hidden="true">✓</span> Test &amp; measure
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-brand-500" aria-hidden="true">✓</span> Prove what works
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-brand-500" aria-hidden="true">✓</span> Resell the playbook
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- =============================== STRATEGY: treat ourselves like a client -->
+    <section class="py-16 lg:py-24">
+      <Container size="wide">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow">The strategy</p>
+          <h2 class="text-ink mt-4 text-3xl font-bold sm:text-[2.6rem] sm:leading-[1.05]">
+            We treated ourselves like a client
+          </h2>
+          <p class="text-muted mt-4 text-lg">
+            Same rigor, same data-informed approach we'd bring to any account — pointed at our own
+            screen.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+          {
+            strategy.map((s, i) => (
+              <div
+                class="reveal border-line bg-surface shadow-card card-hover group flex flex-col rounded-2xl border p-8"
+                style={`--reveal-delay: ${i * 110}ms`}
+              >
+                <div class="flex items-center gap-3">
+                  <span class="bg-tint text-brand-700 font-display grid h-10 w-10 place-items-center rounded-xl text-sm font-bold">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span class="text-brand-600 text-xs font-semibold tracking-wide uppercase">
+                    {s.tag}
+                  </span>
+                </div>
+                <h3 class="text-ink mt-5 text-xl font-bold">{s.title}</h3>
+                <p class="text-muted mt-3 text-[0.975rem] leading-relaxed">{s.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </Container>
+    </section>
+
+    <!-- ================================================ RESULTS: industries -->
+    <section class="surface-dark relative overflow-hidden">
+      <div class="dot-grid-dark pointer-events-none absolute inset-0 opacity-40" aria-hidden="true">
+      </div>
+      <div
+        class="glow-pulse bg-brand-500/20 pointer-events-none absolute top-1/2 left-1/2 h-72 w-[44rem] max-w-full -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]"
+        aria-hidden="true"
+      >
+      </div>
+      <Container size="wide" class="relative py-16 lg:py-24">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow text-brand-300">The results</p>
+          <h2 class="mt-4 text-3xl font-bold text-white sm:text-[2.6rem] sm:leading-[1.05]">
+            Real bookings. Real clients.
+          </h2>
+          <p class="mt-4 text-lg text-white/70">
+            The first month yielded multiple advertising bookings across diverse industries —
+            visibility converted into demand.
+          </p>
+        </div>
+
+        <ul class="reveal mt-10 flex flex-wrap gap-3" style="--reveal-delay: 120ms">
+          {
+            industries.map((name) => (
+              <li class="border-brand-400/25 inline-flex items-center gap-2 rounded-full border bg-white/5 px-4 py-2 text-sm font-medium text-white/85 backdrop-blur">
+                <span class="bg-brand-400 h-1.5 w-1.5 rounded-full" aria-hidden="true" />
+                {name}
+              </li>
+            ))
+          }
+        </ul>
+      </Container>
+    </section>
+
+    <!-- ================================ WHY IT WORKED: support pillars -->
+    <section class="py-16 lg:py-24">
+      <Container size="wide">
+        <div class="reveal max-w-2xl">
+          <p class="eyebrow">Why it worked</p>
+          <h2 class="text-ink mt-4 text-3xl font-bold sm:text-[2.6rem] sm:leading-[1.05]">
+            Strategy beyond the screen
+          </h2>
+          <p class="text-muted mt-4 text-lg">
+            Success came from comprehensive marketing support around every booking — not just the
+            hardware.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            pillars.map((p, i) => (
+              <div
+                class="reveal border-line bg-surface shadow-card card-hover rounded-2xl border p-6"
+                style={`--reveal-delay: ${i * 90}ms`}
+              >
+                <span
+                  class="bg-tint text-brand-600 font-display grid h-9 w-9 place-items-center rounded-lg text-sm font-bold"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <h3 class="text-ink mt-4 text-base font-bold">{p.title}</h3>
+                <p class="text-muted mt-2 text-sm leading-relaxed">{p.body}</p>
+              </div>
+            ))
+          }
+        </div>
+      </Container>
+    </section>
+
+    <!-- ===================================================== TAKEAWAY -->
+    <section class="pb-4">
+      <Container size="narrow">
+        <figure
+          class="reveal border-line from-brand-50 via-tint to-surface relative overflow-hidden rounded-3xl border bg-linear-to-br px-7 py-12 text-center sm:px-12 sm:py-16"
+        >
+          <div class="bg-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden="true">
+          </div>
+          <div class="relative">
+            <span class="text-brand-500 font-display text-5xl leading-none" aria-hidden="true"
+              >“</span
+            >
+            <blockquote
+              class="text-ink mx-auto mt-2 max-w-2xl text-2xl font-bold sm:text-3xl sm:leading-tight"
+            >
+              Visibility backed by a marketing team beats a standard billboard rental
+              <span class="text-gradient">every time.</span>
+            </blockquote>
+            <figcaption class="text-muted mt-6 text-sm font-medium tracking-wide uppercase">
+              The takeaway
+            </figcaption>
+          </div>
+        </figure>
+      </Container>
+    </section>
+
+    <!-- ========================================================== CTA -->
+    <section class="py-16 lg:py-24">
+      <Container>
+        <div
+          class="reveal surface-dark shadow-pop relative overflow-hidden rounded-3xl px-6 py-14 text-center sm:px-12 lg:py-20"
+        >
+          <div
+            class="dot-grid-dark pointer-events-none absolute inset-0 opacity-50"
+            aria-hidden="true"
+          >
+          </div>
+          <div
+            class="glow-pulse bg-brand-500/30 pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full blur-[110px]"
+            aria-hidden="true"
+          >
+          </div>
+
+          <div class="relative">
+            <p
+              class="border-brand-400/30 bg-brand-500/10 text-brand-300 mx-auto inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold tracking-wide uppercase backdrop-blur"
+            >
+              <span class="bg-brand-400 h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
+              Want your ad here?
+            </p>
+            <h2
+              class="mx-auto mt-6 max-w-2xl text-3xl font-bold text-white sm:text-[2.6rem] sm:leading-[1.05]"
+            >
+              Let's turn a high-traffic screen into <span class="text-gradient-bright"
+                >your demand</span
+              >
+            </h2>
+            <p class="mx-auto mt-4 max-w-xl text-white/70">
+              Whether it's our LED wall or your next campaign, we bring the same data-informed
+              playbook. Message us to book a slot or get a custom quote.
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+              <Button href={cta.becomeClient.href} external size="lg">Book a slot</Button>
+              <a
+                href={cta.customQuote.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-base font-semibold text-white backdrop-blur transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40"
+              >
+                Get a custom quote
+              </a>
+            </div>
+            <p class="mt-6 text-xs font-medium tracking-wide text-white/45 uppercase">
+              Top Rated on Upwork · Replies fast · No obligation
+            </p>
+          </div>
+        </div>
+
+        <div class="border-line mt-12 border-t pt-6 text-center">
+          <a href="/blog/" class="text-brand-600 hover:text-brand-700 text-sm font-semibold">
+            &larr; Back to all articles
+          </a>
+        </div>
+      </Container>
+    </section>
+  </article>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} is:inline />
+</BaseLayout>
+
+<style>
+  /* ---- Simulated LED wall (decorative, pure CSS) ----------------------- */
+  .led-frame {
+    position: relative;
+    width: 100%;
+  }
+  .led-screen {
+    position: relative;
+    aspect-ratio: 16 / 11;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: radial-gradient(120% 120% at 50% 30%, #0f2a1c 0%, #061410 70%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      inset 0 0 0 6px rgba(0, 0, 0, 0.55),
+      inset 0 0 60px rgba(0, 0, 0, 0.6),
+      var(--shadow-pop);
+  }
+  /* The pixel grid of the panel */
+  .led-grid {
+    position: absolute;
+    inset: 6px;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.45) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.45) 1px, transparent 1px);
+    background-size: 11px 11px;
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+  }
+  /* A slow light sweep across the panel, like a refresh pass */
+  .led-sweep {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      rgba(108, 185, 104, 0.18) 50%,
+      transparent 65%
+    );
+    transform: translateX(-30%);
+    animation: led-sweep 6.5s ease-in-out infinite;
+  }
+  @keyframes led-sweep {
+    0%,
+    100% {
+      transform: translateX(-35%);
+    }
+    50% {
+      transform: translateX(35%);
+    }
+  }
+  .led-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  .led-eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    font-weight: 700;
+    color: rgba(148, 205, 145, 0.9);
+  }
+  .led-headline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.96;
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+    letter-spacing: 0.02em;
+    color: #eafff0;
+    text-shadow:
+      0 0 18px rgba(108, 185, 104, 0.85),
+      0 0 42px rgba(79, 168, 74, 0.55);
+    animation: led-flicker 5s ease-in-out infinite;
+  }
+  .led-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(79, 168, 74, 0.9);
+    padding: 0.4rem 0.85rem;
+    border-radius: 9999px;
+    box-shadow: 0 0 22px rgba(79, 168, 74, 0.6);
+  }
+  .led-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 9999px;
+    background: #fff;
+    animation: led-blink 1.4s step-end infinite;
+  }
+  /* The stand/pole under the wall */
+  .led-stand {
+    margin: 0 auto;
+    width: 14%;
+    height: 1.6rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
+    border-radius: 0 0 4px 4px;
+  }
+  .led-stand::after {
+    content: '';
+    display: block;
+    width: 320%;
+    height: 6px;
+    margin: 0 auto;
+    transform: translateX(-22%);
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  @keyframes led-flicker {
+    0%,
+    97%,
+    100% {
+      opacity: 1;
+    }
+    98% {
+      opacity: 0.72;
+    }
+    99% {
+      opacity: 0.92;
+    }
+  }
+  @keyframes led-blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.15;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .led-sweep,
+    .led-headline,
+    .led-dot {
+      animation: none;
+    }
+  }
+</style>

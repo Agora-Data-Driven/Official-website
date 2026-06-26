@@ -44,17 +44,26 @@ const linkBase = 'rounded-md px-3 py-2 text-sm font-medium transition-colors hov
                     />
                   </svg>
                 </a>
-                <div class="border-line bg-surface shadow-pop invisible absolute top-full left-0 w-56 translate-y-1 rounded-xl border p-1.5 opacity-0 transition group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                  {item.children.map((child) => (
-                    <a
-                      href={child.href}
-                      class="text-body hover:bg-canvas hover:text-brand-600 block rounded-lg px-3 py-2 text-sm"
-                      rel={child.external ? 'noopener noreferrer' : undefined}
-                      target={child.external ? '_blank' : undefined}
-                    >
-                      {child.label}
-                    </a>
-                  ))}
+                {/*
+                  Hover bridge: a transparent padding strip (pt-2) connects the trigger
+                  to the panel so the cursor never crosses a gap. Without it, the 4px
+                  translate-y offset created a dead zone that dropped :hover and snapped
+                  the menu shut the moment you tried to click an item.
+                  Outer wrapper -> visibility/opacity + bridge. Inner panel -> visuals + slide.
+                */}
+                <div class="invisible absolute top-full left-0 z-10 w-56 pt-2 opacity-0 transition-[visibility,opacity] duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                  <div class="border-line bg-surface shadow-pop translate-y-1 rounded-xl border p-1.5 transition-transform duration-200 group-focus-within:translate-y-0 group-hover:translate-y-0">
+                    {item.children.map((child) => (
+                      <a
+                        href={child.href}
+                        class="text-body hover:bg-canvas hover:text-brand-600 block rounded-lg px-3 py-2 text-sm"
+                        rel={child.external ? 'noopener noreferrer' : undefined}
+                        target={child.external ? '_blank' : undefined}
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (

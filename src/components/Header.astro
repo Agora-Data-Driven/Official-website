@@ -62,6 +62,8 @@ const linkBase = 'rounded-md px-3 py-2 text-sm font-medium transition-colors hov
                 href={item.href}
                 class={`${linkBase} ${isActive(item.href) ? 'text-brand-600' : 'text-body'}`}
                 aria-current={isActive(item.href) ? 'page' : undefined}
+                rel={item.external ? 'noopener noreferrer' : undefined}
+                target={item.external ? '_blank' : undefined}
               >
                 {item.label}
               </a>
@@ -124,7 +126,12 @@ const linkBase = 'rounded-md px-3 py-2 text-sm font-medium transition-colors hov
                   )),
                 ]
               : [
-                  <a href={item.href} class="text-ink rounded-lg px-3 py-2.5 font-medium">
+                  <a
+                    href={item.href}
+                    class="text-ink rounded-lg px-3 py-2.5 font-medium"
+                    rel={item.external ? 'noopener noreferrer' : undefined}
+                    target={item.external ? '_blank' : undefined}
+                  >
                     {item.label}
                   </a>,
                 ],

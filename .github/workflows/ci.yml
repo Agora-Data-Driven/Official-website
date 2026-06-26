@@ -1,0 +1,32 @@
+name: CI
+
+# Install from the lockfile and build on every push to main and every PR into
+# it. This catches build breakage and package.json/lockfile drift.
+#
+# NOTE: `npm run check` and `npm run lint` are intentionally NOT gated yet —
+# the lint toolchain (eslint, prettier + plugins) still needs to be added to
+# devDependencies, and `astro check` currently reports pre-existing type
+# diagnostics. Add those steps here once that follow-up lands.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install (locked)
+        run: npm ci
+
+      - name: Build
+        run: npm run build

@@ -12,11 +12,11 @@ export const prerender = true;
   title="Portfolio"
   description="Real-life results from Agora Data Driven: client case studies and award-winning analytics competition placements."
 >
-  <section class="border-b border-line bg-linear-to-b from-tint/50 to-canvas">
+  <section class="border-line from-tint/50 to-canvas border-b bg-linear-to-b">
     <Container class="py-16 lg:py-24">
-      <p class="text-sm font-semibold tracking-wide text-brand-600 uppercase">Portfolio</p>
-      <h1 class="mt-2 max-w-3xl text-4xl font-bold text-ink sm:text-5xl">Explore our portfolio</h1>
-      <p class="mt-4 max-w-2xl text-lg text-muted">
+      <p class="text-brand-600 text-sm font-semibold tracking-wide uppercase">Portfolio</p>
+      <h1 class="text-ink mt-2 max-w-3xl text-4xl font-bold sm:text-5xl">Explore our portfolio</h1>
+      <p class="text-muted mt-4 max-w-2xl text-lg">
         Our portfolio isn't just a list of projects — it's proof of how we solve problems, drive
         growth, and adapt fast. Every campaign reflects a challenge we've tackled, a strategy we've
         shaped, and the results we've delivered.
@@ -25,10 +25,10 @@ export const prerender = true;
   </section>
 
   <!-- Case studies -->
-  <section id="case-studies" class="border-b border-line py-16 lg:py-24">
+  <section id="case-studies" class="border-line border-b py-16 lg:py-24">
     <Container>
       <SectionHeading eyebrow="Case studies" title="Real-life results">
-        <p class="mt-3 text-muted">
+        <p class="text-muted mt-3">
           From concept to execution, each case shows our problem-solving approach and results-driven
           mindset.
         </p>
@@ -36,24 +36,24 @@ export const prerender = true;
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         {
           caseStudies.map((c) => (
-            <article class="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-card transition-shadow hover:shadow-pop">
+            <article class="border-line bg-surface shadow-card hover:shadow-pop flex flex-col overflow-hidden rounded-2xl border transition-shadow">
               <a href={`/${c.slug}/`} class="block">
                 <img
                   src={c.heroImage}
                   alt=""
-                  class="aspect-[16/10] w-full bg-canvas object-cover"
+                  class="bg-canvas aspect-[16/10] w-full object-cover"
                   loading="lazy"
                 />
               </a>
               <div class="flex flex-1 flex-col p-6">
-                <span class="w-fit rounded-full bg-tint px-3 py-1 text-xs font-semibold text-brand-700">
+                <span class="bg-tint text-brand-700 w-fit rounded-full px-3 py-1 text-xs font-semibold">
                   {c.tag}
                 </span>
-                <h3 class="mt-3 text-xl font-semibold text-ink">{c.cardTitle}</h3>
-                <p class="mt-2 flex-1 text-sm text-muted">{c.summary}</p>
+                <h3 class="text-ink mt-3 text-xl font-semibold">{c.cardTitle}</h3>
+                <p class="text-muted mt-2 flex-1 text-sm">{c.summary}</p>
                 <a
                   href={`/${c.slug}/`}
-                  class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
+                  class="text-brand-600 hover:text-brand-700 mt-4 inline-flex items-center gap-1 text-sm font-semibold"
                 >
                   Learn more <span aria-hidden="true">&rarr;</span>
                 </a>
@@ -66,10 +66,10 @@ export const prerender = true;
   </section>
 
   <!-- Competitions -->
-  <section id="competitions" class="border-b border-line bg-surface py-16 lg:py-24">
+  <section id="competitions" class="border-line bg-surface border-b py-16 lg:py-24">
     <Container>
       <SectionHeading eyebrow="Competitions" title="Skill meets growth">
-        <p class="mt-3 text-muted">
+        <p class="text-muted mt-3">
           We regularly enter industry analytics challenges to stay sharp — and we win.
         </p>
       </SectionHeading>
@@ -78,12 +78,12 @@ export const prerender = true;
           competitions.map((c) => (
             <a
               href={`/${c.slug}/`}
-              class="flex flex-col rounded-2xl border border-line bg-canvas p-7 transition-shadow hover:shadow-pop"
+              class="border-line bg-canvas hover:shadow-pop flex flex-col rounded-2xl border p-7 transition-shadow"
             >
-              <span class="text-3xl font-bold text-brand-600">{c.placement}</span>
-              <h3 class="mt-3 text-xl font-semibold text-ink">{c.cardTitle}</h3>
-              <p class="mt-2 text-sm text-muted">{c.event}</p>
-              <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">
+              <span class="text-brand-600 text-3xl font-bold">{c.placement}</span>
+              <h3 class="text-ink mt-3 text-xl font-semibold">{c.cardTitle}</h3>
+              <p class="text-muted mt-2 text-sm">{c.event}</p>
+              <span class="text-brand-600 mt-4 inline-flex items-center gap-1 text-sm font-semibold">
                 See the project <span aria-hidden="true">&rarr;</span>
               </span>
             </a>
@@ -97,11 +97,11 @@ export const prerender = true;
   <section class="py-16 lg:py-24">
     <Container>
       <div
-        class="flex flex-col items-start justify-between gap-6 rounded-2xl border border-line bg-surface p-8 lg:flex-row lg:items-center"
+        class="border-line bg-surface flex flex-col items-start justify-between gap-6 rounded-2xl border p-8 lg:flex-row lg:items-center"
       >
         <div>
-          <h2 class="text-2xl font-bold text-ink">Looking for high-performance web development?</h2>
-          <p class="mt-2 max-w-2xl text-muted">
+          <h2 class="text-ink text-2xl font-bold">Looking for high-performance web development?</h2>
+          <p class="text-muted mt-2 max-w-2xl">
             We build fast, responsive, conversion-focused business websites using modern stacks like
             React, Vite, and WordPress.
           </p>

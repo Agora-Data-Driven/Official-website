@@ -4,7 +4,7 @@ import SectionHeading from '@components/SectionHeading.astro';
 import { faqs } from '@data/faqs';
 ---
 
-<section class="border-b border-line bg-surface py-16 lg:py-24">
+<section class="border-line bg-surface border-b py-16 lg:py-24">
   <Container size="narrow">
     <SectionHeading eyebrow="FAQ" title="Have some questions?" align="center" class="reveal" />
 
@@ -12,12 +12,12 @@ import { faqs } from '@data/faqs';
       {
         faqs.map((f, i) => (
           <details
-            class="reveal group rounded-2xl border border-line bg-canvas p-5 transition-colors hover:border-brand-200 open:border-brand-300 open:bg-tint/40 open:shadow-card"
+            class="reveal group border-line bg-canvas hover:border-brand-200 open:border-brand-300 open:bg-tint/40 open:shadow-card rounded-2xl border p-5 transition-colors"
             style={`--reveal-delay: ${i * 60}ms`}
           >
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-ink">
+            <summary class="text-ink flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold">
               {f.question}
-              <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-surface text-brand-600 transition-transform group-open:rotate-45 group-open:bg-brand-500 group-open:text-white">
+              <span class="bg-surface text-brand-600 group-open:bg-brand-500 grid h-7 w-7 shrink-0 place-items-center rounded-full transition-transform group-open:rotate-45 group-open:text-white">
                 <svg
                   class="h-4 w-4"
                   viewBox="0 0 20 20"
@@ -30,7 +30,7 @@ import { faqs } from '@data/faqs';
                 </svg>
               </span>
             </summary>
-            <p class="mt-3 text-sm text-muted">{f.answer}</p>
+            <p class="text-muted mt-3 text-sm">{f.answer}</p>
           </details>
         ))
       }

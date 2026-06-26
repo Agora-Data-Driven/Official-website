@@ -40,10 +40,10 @@ const props = [
 ];
 ---
 
-<section class="border-b border-line py-16 lg:py-24">
+<section class="border-line border-b py-16 lg:py-24">
   <Container>
     <SectionHeading eyebrow="Why Agora" title="What working with us looks like" class="reveal">
-      <p class="mt-3 text-muted">
+      <p class="text-muted mt-3">
         The strength of a data team, with the clarity and pace of a partner who actually answers.
       </p>
     </SectionHeading>
@@ -52,18 +52,18 @@ const props = [
       {
         props.map((p, i) => (
           <article
-            class={`card-hover reveal group relative flex flex-col overflow-hidden rounded-2xl border border-line p-7 ${p.span} ${
+            class={`card-hover reveal group border-line relative flex flex-col overflow-hidden rounded-2xl border p-7 ${p.span} ${
               p.feature ? 'bg-tint/45' : 'bg-surface'
             }`}
             style={`--reveal-delay: ${i * 80}ms`}
           >
             {p.feature && (
               <div
-                class="pointer-events-none absolute -top-10 -right-10 h-36 w-36 rounded-full bg-brand-300/25 blur-3xl transition-opacity duration-300 group-hover:opacity-100 sm:opacity-70"
+                class="bg-brand-300/25 pointer-events-none absolute -top-10 -right-10 h-36 w-36 rounded-full blur-3xl transition-opacity duration-300 group-hover:opacity-100 sm:opacity-70"
                 aria-hidden="true"
               />
             )}
-            <div class="relative mb-5 grid h-12 w-12 place-items-center rounded-xl bg-linear-to-br from-brand-500 to-emerald text-white shadow-glow-sm">
+            <div class="from-brand-500 to-emerald shadow-glow-sm relative mb-5 grid h-12 w-12 place-items-center rounded-xl bg-linear-to-br text-white">
               <svg
                 class="h-5 w-5"
                 viewBox="0 0 24 24"
@@ -76,10 +76,10 @@ const props = [
                 set:html={p.icon}
               />
             </div>
-            <h3 class={`relative font-semibold text-ink ${p.feature ? 'text-xl' : 'text-lg'}`}>
+            <h3 class={`text-ink relative font-semibold ${p.feature ? 'text-xl' : 'text-lg'}`}>
               {p.title}
             </h3>
-            <p class={`relative mt-2 text-muted ${p.feature ? 'max-w-md text-base' : 'text-sm'}`}>
+            <p class={`text-muted relative mt-2 ${p.feature ? 'max-w-md text-base' : 'text-sm'}`}>
               {p.body}
             </p>
           </article>

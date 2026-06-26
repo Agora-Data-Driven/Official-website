@@ -11,6 +11,6 @@ const wrap = align === 'center' ? 'mx-auto text-center' : '';
 
 <div class={`max-w-2xl ${wrap} ${className}`}>
   {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-  <h2 class="mt-4 text-3xl font-bold text-ink sm:text-[2.6rem] sm:leading-[1.05]">{title}</h2>
+  <h2 class="text-ink mt-4 text-3xl font-bold sm:text-[2.6rem] sm:leading-[1.05]">{title}</h2>
   <slot />
 </div>

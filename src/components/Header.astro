@@ -8,11 +8,10 @@ const path = Astro.url.pathname;
 const isActive = (href: string) =>
   href === '/' ? path === '/' : path.startsWith(href.replace(/\/$/, ''));
 
-const linkBase =
-  'rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-brand-600';
+const linkBase = 'rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-brand-600';
 ---
 
-<header class="sticky top-0 z-50 border-b border-line bg-surface/90 backdrop-blur">
+<header class="border-line bg-surface/90 sticky top-0 z-50 border-b backdrop-blur">
   <Container>
     <div class="flex h-16 items-center justify-between gap-4 lg:h-20">
       <!-- Wordmark (swap for brand SVG when supplied) -->
@@ -32,7 +31,12 @@ const linkBase =
                   aria-current={isActive(item.href) ? 'page' : undefined}
                 >
                   {item.label}
-                  <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <svg
+                    class="h-3.5 w-3.5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
                     <path
                       fill-rule="evenodd"
                       d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
@@ -40,11 +44,11 @@ const linkBase =
                     />
                   </svg>
                 </a>
-                <div class="invisible absolute left-0 top-full w-56 translate-y-1 rounded-xl border border-line bg-surface p-1.5 opacity-0 shadow-pop transition group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                <div class="border-line bg-surface shadow-pop invisible absolute top-full left-0 w-56 translate-y-1 rounded-xl border p-1.5 opacity-0 transition group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   {item.children.map((child) => (
                     <a
                       href={child.href}
-                      class="block rounded-lg px-3 py-2 text-sm text-body hover:bg-canvas hover:text-brand-600"
+                      class="text-body hover:bg-canvas hover:text-brand-600 block rounded-lg px-3 py-2 text-sm"
                       rel={child.external ? 'noopener noreferrer' : undefined}
                       target={child.external ? '_blank' : undefined}
                     >
@@ -69,40 +73,49 @@ const linkBase =
       <!-- Desktop CTAs -->
       <div class="hidden items-center gap-3 lg:flex">
         <Button href={cta.joinTeam.href} external variant="secondary">{cta.joinTeam.label}</Button>
-        <Button href={cta.becomeClient.href} external variant="primary">{cta.becomeClient.label}</Button>
+        <Button href={cta.becomeClient.href} external variant="primary"
+          >{cta.becomeClient.label}</Button
+        >
       </div>
 
       <!-- Mobile toggle -->
       <button
         id="navToggle"
         type="button"
-        class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-line text-ink lg:hidden"
+        class="border-line text-ink inline-flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden"
         aria-label="Toggle navigation menu"
         aria-expanded="false"
         aria-controls="mobileNav"
       >
-        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+        <svg
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path>
         </svg>
       </button>
     </div>
   </Container>
 
   <!-- Mobile panel -->
-  <div id="mobileNav" class="hidden border-t border-line bg-surface lg:hidden">
+  <div id="mobileNav" class="border-line bg-surface hidden border-t lg:hidden">
     <Container>
       <nav class="flex flex-col gap-1 py-4" aria-label="Mobile">
         {
           mainNav.flatMap((item) =>
             item.children
               ? [
-                  <a href={item.href} class="rounded-lg px-3 py-2.5 font-medium text-ink">
+                  <a href={item.href} class="text-ink rounded-lg px-3 py-2.5 font-medium">
                     {item.label}
                   </a>,
                   ...item.children.map((child) => (
                     <a
                       href={child.href}
-                      class="rounded-lg px-3 py-2.5 pl-6 text-body"
+                      class="text-body rounded-lg px-3 py-2.5 pl-6"
                       rel={child.external ? 'noopener noreferrer' : undefined}
                       target={child.external ? '_blank' : undefined}
                     >
@@ -111,7 +124,7 @@ const linkBase =
                   )),
                 ]
               : [
-                  <a href={item.href} class="rounded-lg px-3 py-2.5 font-medium text-ink">
+                  <a href={item.href} class="text-ink rounded-lg px-3 py-2.5 font-medium">
                     {item.label}
                   </a>,
                 ],
@@ -119,8 +132,12 @@ const linkBase =
         }
       </nav>
       <div class="flex flex-col gap-3 pb-6">
-        <Button href={cta.joinTeam.href} external variant="secondary" size="lg">{cta.joinTeam.label}</Button>
-        <Button href={cta.becomeClient.href} external variant="primary" size="lg">{cta.becomeClient.label}</Button>
+        <Button href={cta.joinTeam.href} external variant="secondary" size="lg"
+          >{cta.joinTeam.label}</Button
+        >
+        <Button href={cta.becomeClient.href} external variant="primary" size="lg"
+          >{cta.becomeClient.label}</Button
+        >
       </div>
     </Container>
   </div>

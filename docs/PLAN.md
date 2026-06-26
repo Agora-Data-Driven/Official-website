@@ -12,24 +12,24 @@ Crawled via `wp-sitemap.xml`. The site has **14 real URLs** plus template cruft 
 
 ### 1.1 Page inventory
 
-| # | Live URL | Type | Real / Junk | Notes |
-|---|----------|------|-------------|-------|
-| 1 | `/` | Home | **Mixed** | Real hero, certs, testimonials, FAQ, blog feed. **Junk:** template portfolio + fake pricing (kitpapa.net/brighture demo links). |
-| 2 | `/blog/` | Blog index | **Real** | Lists 6 posts. No intro copy, no pagination. |
-| 3 | `/agora-portfolio/` | Portfolio | **Real** | Case studies, competitions, web-dev — this is the *good* portfolio (homepage portfolio is the junk one). |
-| 4 | `/building-an-authentic-brand-identity/` | Post | **Real — flagship** | This **is** the "LED Wall" nav item. Title: *"From Display to Demand: Marketing Our LED Wall."* Dated Dec 2, 2024. Slug must be preserved. |
-| 5 | `/how-we-helped-more-than-double-our-clients-weekly-sales-through-full-funnel-marketing/` | Post | **Real** | Case-study-style post, updated Jun 13 2026 (newest). |
-| 6 | `/how-video-marketing-boosts-engagement-and-sales/` | Post | **Real** | May 30 2025. |
-| 7 | `/how-to-launch-a-product-online-a-marketing-agencys-guide-for-entrepreneurs/` | Post | **Real** | May 30 2025. |
-| 8 | `/why-consistent-content-is-the-key-to-long-term-growth/` | Post | **Real** | May 30 2025. |
-| 9 | `/digital-advertising-myths-that-are-holding-your-business-back/` | Post | **Real** | May 30 2025. |
-| 10 | `/case-study-sabbathspawellnesshub/` | Page | **Real** | Spa & wellness. Structured: Background / Challenges / Solution / Results. Has metrics. |
-| 11 | `/case-study-community-events/` | Page | **Real** | Community events case study (same structure). |
-| 12 | `/case-study-digital-products/` | Page | **Real** | Digital products case study (same structure). |
-| 13 | `/competition1/` | Page | **Real** | Codebasics Resume Project Challenge #9 — *2nd of 2,459*, Marketing Analytics. |
-| 14 | `/competition2/` | Page | **Real** | *1st place, cash prize* — Operations Analytics. |
-| — | `/category/blog/` | Category archive | Real (WP-generated) | Redirect to `/blog/`. |
-| — | `webdev.agoradatadriven.com` | External subdomain | Out of scope | Separate web-dev portfolio site. Linked from Portfolio submenu. **Decision needed** (see §10). |
+| #   | Live URL                                                                                  | Type               | Real / Junk         | Notes                                                                                                                                      |
+| --- | ----------------------------------------------------------------------------------------- | ------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | `/`                                                                                       | Home               | **Mixed**           | Real hero, certs, testimonials, FAQ, blog feed. **Junk:** template portfolio + fake pricing (kitpapa.net/brighture demo links).            |
+| 2   | `/blog/`                                                                                  | Blog index         | **Real**            | Lists 6 posts. No intro copy, no pagination.                                                                                               |
+| 3   | `/agora-portfolio/`                                                                       | Portfolio          | **Real**            | Case studies, competitions, web-dev — this is the _good_ portfolio (homepage portfolio is the junk one).                                   |
+| 4   | `/building-an-authentic-brand-identity/`                                                  | Post               | **Real — flagship** | This **is** the "LED Wall" nav item. Title: _"From Display to Demand: Marketing Our LED Wall."_ Dated Dec 2, 2024. Slug must be preserved. |
+| 5   | `/how-we-helped-more-than-double-our-clients-weekly-sales-through-full-funnel-marketing/` | Post               | **Real**            | Case-study-style post, updated Jun 13 2026 (newest).                                                                                       |
+| 6   | `/how-video-marketing-boosts-engagement-and-sales/`                                       | Post               | **Real**            | May 30 2025.                                                                                                                               |
+| 7   | `/how-to-launch-a-product-online-a-marketing-agencys-guide-for-entrepreneurs/`            | Post               | **Real**            | May 30 2025.                                                                                                                               |
+| 8   | `/why-consistent-content-is-the-key-to-long-term-growth/`                                 | Post               | **Real**            | May 30 2025.                                                                                                                               |
+| 9   | `/digital-advertising-myths-that-are-holding-your-business-back/`                         | Post               | **Real**            | May 30 2025.                                                                                                                               |
+| 10  | `/case-study-sabbathspawellnesshub/`                                                      | Page               | **Real**            | Spa & wellness. Structured: Background / Challenges / Solution / Results. Has metrics.                                                     |
+| 11  | `/case-study-community-events/`                                                           | Page               | **Real**            | Community events case study (same structure).                                                                                              |
+| 12  | `/case-study-digital-products/`                                                           | Page               | **Real**            | Digital products case study (same structure).                                                                                              |
+| 13  | `/competition1/`                                                                          | Page               | **Real**            | Codebasics Resume Project Challenge #9 — _2nd of 2,459_, Marketing Analytics.                                                              |
+| 14  | `/competition2/`                                                                          | Page               | **Real**            | _1st place, cash prize_ — Operations Analytics.                                                                                            |
+| —   | `/category/blog/`                                                                         | Category archive   | Real (WP-generated) | Redirect to `/blog/`.                                                                                                                      |
+| —   | `webdev.agoradatadriven.com`                                                              | External subdomain | Out of scope        | Separate web-dev portfolio site. Linked from Portfolio submenu. **Decision needed** (see §10).                                             |
 
 ### 1.2 Navigation & primary CTAs (real — keep)
 
@@ -43,21 +43,21 @@ Crawled via `wp-sitemap.xml`. The site has **14 real URLs** plus template cruft 
 - **Certifications:** 11 Credly badges with real verification URLs (Intuit Bookkeeping, IBM Data Science series, Media Buying Pro, etc.). Badges #9/#10 share a URL (dupe) and #11 is missing the `/public_url` suffix — flagged below.
 - **Testimonials:** 6, sourced from Upwork, **anonymous** (no names/companies on the live site). Wording captured verbatim. Will **not** invent names/logos.
 - **FAQ:** 5 real Q&As (cost, differentiation, examples, how-to-start, timeline). Q5's answer is duplicated from a generic line — flagged.
-- **Case studies:** 3 (Sabbath Spa, Community Events, Digital Products) with real metrics (e.g. Sabbath: *"100% increase in monthly social media inquiries within 6 weeks," "40% increase in bookings," "200+ new followers/month"*).
+- **Case studies:** 3 (Sabbath Spa, Community Events, Digital Products) with real metrics (e.g. Sabbath: _"100% increase in monthly social media inquiries within 6 weeks," "40% increase in bookings," "200+ new followers/month"_).
 - **Competitions:** 2 real placements with images.
 - **Blog hero images:** mix of real photos and AI-generated (`Gemini_Generated_Image_*`, `unnamed.webp`).
 
 ### 1.4 Template/placeholder cruft (DO NOT reproduce)
 
-| Item | Where | Action |
-|------|-------|--------|
-| Fake pricing tiers ($19/$29/$39 Silver/Gold/Platinum) → `kitpapa.net/brighture/contact/` | Home | **Replace** with a single "Get a custom quote" CTA (FAQ confirms custom quotes only). |
-| "Explore our Portfolio" demo grid (Branded Visions, Digital Gallery, etc.) → `kitpapa.net/brighture/gallery/` | Home | **Remove.** Replace with a teaser linking to the real `/portfolio/` page. |
-| "Latest Portfolio" button → `kitpapa.net/brighture/services/` | Home | **Remove.** |
-| Duplicate "Data Analytics & Reporting /02" + 3 cards all → `/data-analytics-reporting/` (broken) | Home | **Remove** (page doesn't exist as real content). |
-| Footer Terms & Privacy → `#` (dead) | All | **Stub** real pages or drop from footer (see §10). |
-| 7 unidentified "client logos" on Portfolio trust strip (no alt, no link) | Portfolio | **Flag** — NEEDS INPUT (which clients? permission to show?). |
-| "Job Success Rate 0%" badge | Portfolio | Looks like a broken/placeholder value — **flag**, pull real Upwork stat. |
+| Item                                                                                                          | Where     | Action                                                                                |
+| ------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------- |
+| Fake pricing tiers ($19/$29/$39 Silver/Gold/Platinum) → `kitpapa.net/brighture/contact/`                      | Home      | **Replace** with a single "Get a custom quote" CTA (FAQ confirms custom quotes only). |
+| "Explore our Portfolio" demo grid (Branded Visions, Digital Gallery, etc.) → `kitpapa.net/brighture/gallery/` | Home      | **Remove.** Replace with a teaser linking to the real `/portfolio/` page.             |
+| "Latest Portfolio" button → `kitpapa.net/brighture/services/`                                                 | Home      | **Remove.**                                                                           |
+| Duplicate "Data Analytics & Reporting /02" + 3 cards all → `/data-analytics-reporting/` (broken)              | Home      | **Remove** (page doesn't exist as real content).                                      |
+| Footer Terms & Privacy → `#` (dead)                                                                           | All       | **Stub** real pages or drop from footer (see §10).                                    |
+| 7 unidentified "client logos" on Portfolio trust strip (no alt, no link)                                      | Portfolio | **Flag** — NEEDS INPUT (which clients? permission to show?).                          |
+| "Job Success Rate 0%" badge                                                                                   | Portfolio | Looks like a broken/placeholder value — **flag**, pull real Upwork stat.              |
 
 ---
 
@@ -71,7 +71,7 @@ Crawled via `wp-sitemap.xml`. The site has **14 real URLs** plus template cruft 
 - **SSR via `@astrojs/node`**, containerized and deployed to **GCP Cloud Run** (full-stack headroom; no dynamic feature is needed today since the quote CTA routes to Upwork).
 - **Tooling:** TypeScript (strict), ESLint + Prettier, `@astrojs/sitemap`, `astro:assets`; `Dockerfile` + Cloud Build for deploy. Cloud Build builds the image remotely, so local Docker is optional.
 
-Next.js is the documented alternative *only* if app features (auth, dashboards, client portal) are coming. Nothing in the audit needs them. Recommend Astro.
+Next.js is the documented alternative _only_ if app features (auth, dashboards, client portal) are coming. Nothing in the audit needs them. Recommend Astro.
 
 ---
 
@@ -105,6 +105,7 @@ External (unchanged, open in new tab): Upwork agency, `apply.agoradatadriven.com
 ## 4. Component list
 
 **Layout / global**
+
 - `BaseLayout.astro` — `<head>`, SEO meta, JSON-LD slot, skip-link, fonts.
 - `Header.astro` + `MobileNav` island — sticky nav, dropdown Portfolio menu, two CTAs.
 - `Footer.astro` — Pages nav, logo, legal links, copyright.
@@ -112,6 +113,7 @@ External (unchanged, open in new tab): Upwork agency, `apply.agoradatadriven.com
 - `JsonLd.astro` — Organization (site-wide) + BlogPosting (posts).
 
 **Home sections**
+
 - `Hero.astro` (headline, value prop, dual CTA, optional brand video — see NEEDS INPUT).
 - `CertificationsStrip.astro` (Credly badges, external verify links).
 - `Testimonials` island (6 quotes, slider on mobile, Upwork attribution).
@@ -122,6 +124,7 @@ External (unchanged, open in new tab): Upwork agency, `apply.agoradatadriven.com
 - `FinalCta.astro` ("Data Driven Success Starts Today!").
 
 **Shared / content**
+
 - `Card.astro`, `Button.astro` (primary/secondary/ghost variants), `Badge.astro`, `SectionHeading.astro`, `Container.astro`.
 - `PostCard.astro` (blog index + "Latest from Blog").
 - `CaseStudyCard.astro`, `CompetitionCard.astro`.
@@ -145,20 +148,25 @@ src/data/             # structured, non-article content (TS/JSON)
 ```
 
 **`posts` frontmatter schema (zod):**
+
 ```ts
 { title, slug (preserve), publishDate, updatedDate?, excerpt,
   heroImage, heroAlt, author? ("Agora Data Driven"), category, draft? }
 ```
 
 **`caseStudies` frontmatter:**
+
 ```ts
 { title, client, slug, summary, heroImage, services[], metrics[],
   sections: {background, challenges, solution, results} }
 ```
 
 **`competitions` frontmatter:**
+
 ```ts
-{ title, placement, event, slug, heroImage, summary, body }
+{
+  (title, placement, event, slug, heroImage, summary, body);
+}
 ```
 
 ---
@@ -167,12 +175,12 @@ src/data/             # structured, non-article content (TS/JSON)
 
 Because slugs are preserved, redirects are minimal. Provided as a host-agnostic table; on Cloud Run (SSR) these are handled via Astro's `redirects` config / middleware (301).
 
-| Old URL | New URL | Code | Reason |
-|---------|---------|------|--------|
-| `/category/blog/` | `/blog/` | 301 | Consolidate WP category archive. |
-| `/data-analytics-reporting/` | `/agora-portfolio/` | 301 | Broken template target → real portfolio. |
-| `kitpapa.net/brighture/*` | — | n/a | External junk, not our domain; just removed from markup. |
-| All 14 real URLs | unchanged | — | **No redirect needed** (1:1 slug preservation). |
+| Old URL                      | New URL             | Code | Reason                                                   |
+| ---------------------------- | ------------------- | ---- | -------------------------------------------------------- |
+| `/category/blog/`            | `/blog/`            | 301  | Consolidate WP category archive.                         |
+| `/data-analytics-reporting/` | `/agora-portfolio/` | 301  | Broken template target → real portfolio.                 |
+| `kitpapa.net/brighture/*`    | —                   | n/a  | External junk, not our domain; just removed from markup. |
+| All 14 real URLs             | unchanged           | —    | **No redirect needed** (1:1 slug preservation).          |
 
 WP system URLs (`/wp-admin`, `/wp-sitemap*.xml`, `/wp-content/*`) die with WordPress; our new `sitemap-index.xml` + `robots.txt` replace them. Old image URLs (`/wp-content/uploads/...`) will be flagged if any indexed page deep-links them.
 
@@ -217,8 +225,8 @@ Final palette gets locked via the **artifact-design** skill at scaffold time (br
 
 ## 9. Phase order
 
-1. **Scaffold** — Astro + TS (strict) + Tailwind + ESLint/Prettier; folder structure; design tokens; `BaseLayout`, `Header`, `Footer`, `Button`, `Container`. Dev server up. *(Commit: chore: scaffold)*
-2. **Content migration** — port 6 posts + 3 case studies + 2 competitions to Markdown with frontmatter; load testimonials/certs/FAQ as data. *(Commit per content type)*
+1. **Scaffold** — Astro + TS (strict) + Tailwind + ESLint/Prettier; folder structure; design tokens; `BaseLayout`, `Header`, `Footer`, `Button`, `Container`. Dev server up. _(Commit: chore: scaffold)_
+2. **Content migration** — port 6 posts + 3 case studies + 2 competitions to Markdown with frontmatter; load testimonials/certs/FAQ as data. _(Commit per content type)_
 3. **Home** — build all sections with real content; kill pricing/portfolio junk. Verify responsive.
 4. **Blog** — index + post template + LED Wall; prose styling; reading experience.
 5. **Portfolio** — portfolio page + case-study + competition detail templates.
@@ -235,7 +243,7 @@ Each phase: run dev server, verify render + responsiveness, commit logically. No
 1. **Stack** — **Astro + TypeScript + Tailwind.** ✅
 2. **Hosting** — **GCP Cloud Run** (full-stack). Astro SSR via `@astrojs/node`, containerized (`Dockerfile`), deployed with **Cloud Build** + **Artifact Registry**. Active gcloud project: `agora-data-driven`. ✅
 3. **"Get a custom quote" CTA** — **routes to the Upwork agency page** (no backend/contact form). ✅
-4. **Web Development submenu** — keep `webdev.agoradatadriven.com` as an external link (separate property, opens in new tab). *(default)*
+4. **Web Development submenu** — keep `webdev.agoradatadriven.com` as an external link (separate property, opens in new tab). _(default)_
 5. **Legal pages** — **stub `/privacy` + `/terms`** with placeholder copy the client fills in later; footer links go live. ✅
 
 ---
@@ -243,7 +251,7 @@ Each phase: run dev server, verify render + responsiveness, commit logically. No
 ## 11. NEEDS INPUT (real content I couldn't verify — won't fabricate)
 
 - **Brand video:** the brief mentions a hero "brand video," but **no video embed exists on the live homepage.** Provide the video (YouTube/Vimeo/MP4) if it should be featured, else I'll omit it.
-- **Exact hero headline:** live markup renders *"Analytics Powered Marketing for Real…"* (the word "Results" appears styled/animated and didn't extract cleanly). Confirm final wording — assuming **"Analytics Powered Marketing for Real Results."**
+- **Exact hero headline:** live markup renders _"Analytics Powered Marketing for Real…"_ (the word "Results" appears styled/animated and didn't extract cleanly). Confirm final wording — assuming **"Analytics Powered Marketing for Real Results."**
 - **Testimonial attribution:** keep as anonymous "Upwork client," or add real names/companies/avatars (with permission)?
 - **Certifications cleanup:** badge #11 (Media Buying Pro) URL is missing `/public_url`; badges #9 & #10 share one URL. Confirm the correct/complete Credly list + badge images.
 - **Portfolio "trust" logos:** 7 client logos with no names — identify them (and confirm permission), or I'll drop the strip.
@@ -253,4 +261,4 @@ Each phase: run dev server, verify render + responsiveness, commit logically. No
 
 ---
 
-*Next step after approval: Phase 1 scaffold. I will not scaffold until you sign off on this plan and the §10 decisions.*
+_Next step after approval: Phase 1 scaffold. I will not scaffold until you sign off on this plan and the §10 decisions._

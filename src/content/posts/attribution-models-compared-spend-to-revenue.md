@@ -12,7 +12,7 @@ Get attribution wrong and you'll cut the spend that's quietly doing the work whi
 
 The trouble is that "attribution model" gets discussed as if picking the right one is the whole job. It isn't. The model is the easy part. The hard part is having data clean enough that any model produces an answer you can trust.
 
-That distinction is the through-line of this comparison, and it's worth grounding in one piece of real work. Agora rebuilt a client's measurement and attribution setup so paid-media spend decisions could be tied back to actual revenue instead of platform-reported conversions. The lesson from that project: the model you choose likely matters far less than the foundation it runs on.
+That distinction is the through-line of this comparison, and it's worth grounding in one piece of real work. Agora rebuilt a client's measurement and attribution setup so paid-media spend decisions could be tied back to actual revenue instead of [platform-reported conversions](/why-platform-reported-roas-overstates-results/). The lesson from that project: the model you choose likely matters far less than [the foundation it runs on](/server-side-vs-client-side-tracking-ga4/).
 
 ## What an Attribution Model Is Doing
 
@@ -26,7 +26,7 @@ These assign 100% of the credit to one touchpoint. They're simple, easy to expla
 
 **First-touch** gives all credit to the first interaction. It over-rewards awareness channels and pretends the rest of the journey did nothing. Useful only if your single question is "what introduces people to us?"
 
-**Last-touch** gives all credit to the final interaction before purchase. It's the most common default and the most misleading, because it systematically over-credits bottom-of-funnel channels—branded search, retargeting—that mostly _harvest_ demand other channels created. Cut your awareness spend based on last-touch and you'll watch your "efficient" bottom-funnel channels slowly starve as the demand feeding them dries up.
+**Last-touch** gives all credit to the final interaction before purchase. It's the most common default and the most misleading, because it systematically over-credits bottom-of-funnel channels—branded search, retargeting—that mostly _harvest_ [demand other channels created](/why-a-full-funnel-strategy-can-break-the-sales-plateau/). Cut your awareness spend based on last-touch and you'll watch your "efficient" bottom-funnel channels slowly starve as the demand feeding them dries up.
 
 ## The Multi-Touch Models
 

@@ -10,7 +10,7 @@ draft: false
 
 Digital out-of-home advertising—the LED billboards and screens you pass on the street—has a reputation: big, bright, expensive, and impossible to measure. That reputation makes a lot of local businesses assume it's a channel for national brands only, and keeps their budgets in the same crowded Meta and Google auctions where everyone else is bidding.
 
-That assumption is worth testing. When Agora launched an LED-wall (DOOH) advertising offering, it took bookings in its first month across six different verticals—food, music, pharmacy, beauty, printing, and influencers. The spread is the interesting part. Those six businesses share almost no customer profile or product, yet each found a reason to buy space on the same screen. That tells you something useful about the kind of business DOOH actually fits.
+That assumption is worth testing. When [Agora launched an LED-wall (DOOH) advertising offering](/building-an-authentic-brand-identity/), it took bookings in its first month across six different verticals—food, music, pharmacy, beauty, printing, and influencers. The spread is the interesting part. Those six businesses share almost no customer profile or product, yet each found a reason to buy space on the same screen. That tells you something useful about the kind of business DOOH actually fits.
 
 This is an honest look at when LED-wall advertising earns its place in a local budget—and when your money belongs elsewhere.
 
@@ -37,7 +37,7 @@ The useful signal from the launch is the variety of buyers. Rather than guess at
 - **Printing**, a B2B service, still relies on local discovery and credibility; being seen on a prominent wall is a signal of being established.
 - **Influencers** trade on visibility itself; physical presence can signal that they're a real local figure, not only an online handle.
 
-These are hypotheses about fit, not measured conclusions about each buyer. But they point to one shared thread: none of these businesses was chasing the same customer, yet all of them needed broad, local awareness—the "everyone around here should know we exist" job that conversion-focused online ads are poorly suited to. DOOH is, first and foremost, a demand-creation channel. It earns its budget when broad local awareness is the thing you actually need.
+These are hypotheses about fit, not measured conclusions about each buyer. But they point to one shared thread: [none of these businesses was chasing the same customer](/creative-testing-across-verticals-dooh/), yet all of them needed broad, local awareness—the "everyone around here should know we exist" job that conversion-focused online ads are poorly suited to. DOOH is, first and foremost, a demand-creation channel. It earns its budget when broad local awareness is the thing you actually need.
 
 ## The Honest Case Against It
 
@@ -80,4 +80,4 @@ Run yourself through three questions before booking anything:
 2.  **Will my actual customers pass this screen?** Be specific about the location and its traffic patterns. The audience is whoever is physically there—no targeting will save a bad location.
 3.  **Do I have a way to catch the demand?** Make sure something—your storefront, your social presence, your search listing—is ready to convert the people who notice you.
 
-If you answer "awareness," "yes," and "yes," LED-wall advertising can absolutely be worth it for a local business; the range of businesses that booked it in that first month is a sign the format earns its place across very different needs. If you answer otherwise, keep your budget in the channels built for what you actually need, and revisit DOOH when broad local presence is the problem you're trying to solve.
+If you answer "awareness," "yes," and "yes," LED-wall advertising can absolutely be worth it for a local business; the range of businesses that booked it in that first month is a sign the format earns its place across very different needs. If you answer otherwise, keep your budget in the [channels built for what you actually need](/how-to-launch-a-new-paid-advertising-channel/), and revisit DOOH when broad local presence is the problem you're trying to solve.

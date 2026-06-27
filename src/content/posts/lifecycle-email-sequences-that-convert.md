@@ -8,11 +8,11 @@ category: 'Strategy & Growth'
 draft: false
 ---
 
-A new lead is not a customer, and a first-time customer is not a loyal one. The space between those stages is a common and expensive leak—budget goes into generating leads, which are then left to convert on their own, and a first purchase gets treated as the finish line instead of the start of a relationship.
+A new lead is not a customer, and a first-time customer is not a loyal one. The space between those stages is a common and expensive leak—budget goes into generating leads, which are then [left to convert on their own](/lead-nurturing-automation-time-to-first-purchase/), and a first purchase gets treated as the finish line instead of the start of a relationship.
 
 Lifecycle email is the system that closes those gaps. Done well, it walks a contact from "interested" to "first purchase" to a reliable repeat buyer—prompted at the right moments rather than left to drift. It works because it's the lowest-cost, highest-control channel you own: once someone is on your list, reaching them again costs almost nothing and doesn't depend on an ad auction.
 
-We've seen what happens when this layer is built properly as part of a larger system. In a full-funnel rebuild for an Agora client—paid acquisition, creative testing, and lifecycle conversion working together rather than optimizing a single channel—the client more than doubled their weekly sales within the campaign period. Lifecycle email wasn't a standalone trick there; it was the mechanism that converted and retained the demand the rest of the funnel created. Here's how to build sequences that do the same job.
+We've seen what happens when this layer is built properly as part of a larger system. In a [full-funnel rebuild](/why-a-full-funnel-strategy-can-break-the-sales-plateau/) for an Agora client—paid acquisition, creative testing, and lifecycle conversion working together rather than optimizing a single channel—the client [more than doubled their weekly sales](/how-we-helped-more-than-double-our-clients-weekly-sales-through-full-funnel-marketing/) within the campaign period. Lifecycle email wasn't a standalone trick there; it was the mechanism that converted and retained the demand the rest of the funnel created. Here's how to build sequences that do the same job.
 
 ## Why Lifecycle Email Beats One-Off Campaigns
 
@@ -66,7 +66,7 @@ Together these form a loop, not a line. The welcome sequence converts leads; the
 
 Lifecycle email has one built-in limit worth stating plainly: it only works on people already on your list. It's a powerful closer and retainer, not a source of new demand—point it at an empty list and it has no one to move.
 
-This is exactly why, in the Agora client's full-funnel rebuild, lifecycle email was built as one component working with the others, not as a fix on its own. Paid acquisition and creative testing created and warmed the demand; lifecycle email converted it and brought people back to buy again. Each part made the others more valuable—and that coordination, rather than any single channel, is what more than doubled the client's weekly sales within the campaign period.
+This is exactly why, in the Agora client's full-funnel rebuild, lifecycle email was built as one component working with the others, not as a fix on its own. [Paid acquisition](/retargeting-plus-email-rented-to-owned/) and creative testing created and warmed the demand; lifecycle email converted it and brought people back to buy again. Each part made the others more valuable—and that coordination, rather than any single channel, is what more than doubled the client's weekly sales within the campaign period.
 
 ## What to Measure
 

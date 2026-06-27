@@ -12,7 +12,7 @@ There's a number many businesses never explicitly measure but pay for every day:
 
 Lead nurturing automation is how you compress that gap. Not by pressuring people to buy before they're ready, but by removing the specific things that stall them—an unanswered question, a missing piece of proof, or simply going quiet after they sign up.
 
-This matters most as part of a connected system. In a full-funnel rebuild for an Agora client—paid acquisition, creative testing, and lifecycle conversion working together rather than optimizing a single channel—the client more than doubled their weekly sales within the campaign period. That result came from the coordinated system, not any single tactic; nurturing was the part that made sure the demand the funnel created actually converted, and converted faster, instead of leaking away while prospects sat undecided. Here's how to build that.
+This matters most as part of a connected system. In a [full-funnel rebuild](/why-a-full-funnel-strategy-can-break-the-sales-plateau/) for an Agora client—paid acquisition, creative testing, and lifecycle conversion working together rather than optimizing a single channel—the client [more than doubled their weekly sales](/how-we-helped-more-than-double-our-clients-weekly-sales-through-full-funnel-marketing/) within the campaign period. That result came from the coordinated system, not any single tactic; nurturing was the part that made sure the demand the funnel created actually converted, and converted faster, instead of leaking away while prospects sat undecided. Here's how to build that.
 
 ## Why Time-to-First-Purchase Is the Metric That Matters
 
@@ -69,7 +69,7 @@ This isn't about bombarding people. Each step exists to remove one specific reas
 
 Lead nurturing automation has a real limit worth stating plainly: it can only accelerate people who are already in your funnel. It shortens the path to purchase; it doesn't create the demand in the first place. Point world-class nurturing at an empty pipeline and it has nothing to accelerate.
 
-That's why, for the Agora client, nurturing was built as one gear in a full-funnel system rather than a standalone fix. Paid acquisition and creative testing brought qualified prospects in and warmed them up; nurturing automation then moved them to a first purchase faster and let fewer slip away. The components reinforced each other—better top-of-funnel made nurturing more productive, and faster nurturing made the acquisition spend pay back sooner. That mutual reinforcement, not any one tactic, is what more than doubled the client's weekly sales within the campaign period.
+That's why, for the Agora client, nurturing was built as one gear in a full-funnel system rather than a standalone fix. [Paid acquisition](/retargeting-plus-email-rented-to-owned/) and creative testing brought qualified prospects in and warmed them up; nurturing automation then moved them to a first purchase faster and let fewer slip away. The components reinforced each other—better top-of-funnel made nurturing more productive, and faster nurturing made the acquisition spend pay back sooner. That mutual reinforcement, not any one tactic, is what more than doubled the client's weekly sales within the campaign period.
 
 ## How to Actually Measure the Gap
 
@@ -81,6 +81,6 @@ Once you have a baseline and a few segments, every automation you add can be jud
 
 ## Getting Started
 
-You don't need a complex stack to begin. Start by measuring your current time-to-first-purchase so you have a baseline to beat. Then build two automations first: an immediate welcome that ends the post-signup silence, and an abandoned-checkout recovery that catches the people closest to buying. For most funnels, those two are the recommended starting point—they tend to recover the delay that's easiest to win back.
+You don't need a complex stack to begin. Start by measuring your current time-to-first-purchase so you have a baseline to beat. Then build two automations first: an immediate [welcome that ends the post-signup silence](/lifecycle-email-sequences-that-convert/), and an abandoned-checkout recovery that catches the people closest to buying. For most funnels, those two are the recommended starting point—they tend to recover the delay that's easiest to win back.
 
 From there, add behavior-triggered nudges and trust-building steps, and watch the gap shrink. Every day you cut off the front of the purchase decision is a lead that converts before it had a chance to go cold.

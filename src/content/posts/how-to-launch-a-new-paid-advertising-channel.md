@@ -12,7 +12,7 @@ Adding a new advertising channel feels risky precisely because it's unfamiliar. 
 
 But standing still has a cost too. Many channels see diminishing returns over time, and relying on a single one can quietly cap your growth. The businesses that keep scaling are the ones that can open a new channel deliberately, learn fast, and decide on evidence rather than nerves.
 
-We've done this firsthand. When Agora launched an LED-wall (DOOH) advertising offering, it took bookings in its first month across six different verticals—food, music, pharmacy, beauty, printing, and influencers. A brand-new channel found paying demand across six unrelated kinds of business almost immediately—the result of treating the launch as a structured experiment rather than a gamble. Here's the framework.
+We've done this firsthand. When [Agora launched an LED-wall (DOOH) advertising offering](/is-led-wall-dooh-advertising-worth-it/), it took bookings in its first month across six different verticals—food, music, pharmacy, beauty, printing, and influencers. A brand-new channel found paying demand across six unrelated kinds of business almost immediately—the result of treating the launch as a structured experiment rather than a gamble. Here's the framework.
 
 ## Step 1: Be Honest About What Job the Channel Does
 
@@ -55,13 +55,13 @@ Match the creative to how the channel is actually consumed:
 | Paid social        | A scroll, if you earn it | Stop the scroll fast; detail can follow   |
 | Search             | Intentful, text-first    | Match the exact need being searched       |
 
-Make a small set of distinct creative concepts, not one. You don't yet know what resonates on a channel you've never run, and a launch is your chance to find out.
+Make [a small set of distinct creative concepts](/creative-testing-across-verticals-dooh/), not one. You don't yet know what resonates on a channel you've never run, and a launch is your chance to find out.
 
 ## Step 5: Decide How You'll Measure Before You Launch
 
 Sort out measurement before the campaign goes live, not after, because the right metric depends entirely on the job you assigned in Step 1.
 
-For a demand-capture channel, you can hold it to cost-per-lead or cost-per-sale. For a demand-creation channel like out-of-home, direct attribution is genuinely hard, so you lean on proxies: lift in branded searches, an increase in direct or walk-in traffic during the run, a simple "how did you hear about us?" at the point of sale, or a promo code tied to the placement. Imperfect, but honest—and far better than judging an awareness channel by a metric it was never going to move.
+For a demand-capture channel, you can hold it to cost-per-lead or cost-per-sale. For a demand-creation channel like out-of-home, [direct attribution is genuinely hard](/attribution-models-compared-spend-to-revenue/), so you lean on proxies: lift in branded searches, an increase in direct or walk-in traffic during the run, a simple "how did you hear about us?" at the point of sale, or a promo code tied to the placement. Imperfect, but honest—and far better than judging an awareness channel by a metric it was never going to move.
 
 Decide your success threshold now, before any money is spent and a result needs defending.
 

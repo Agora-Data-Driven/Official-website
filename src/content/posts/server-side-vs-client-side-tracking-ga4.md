@@ -10,7 +10,7 @@ draft: false
 
 Your Google Analytics 4 numbers and your bank account no longer agree. The dashboard says one thing about how many conversions your ads drove; the revenue you can actually see says another. That gap isn't a bug you can fix with a setting—it's the result of client-side tracking, the default way GA4 collects data, becoming steadily less reliable.
 
-For one Agora client, this gap had grown wide enough that nobody trusted the reporting at all. We rebuilt their measurement and attribution setup so that paid-media spend decisions could be tied back to actual revenue instead of platform-reported conversions. The rebuild didn't invent new sales—it revealed which spend was already working and which was being credited to the wrong place. The foundation of that rebuild was a move from client-side to server-side tracking.
+For one Agora client, this gap had grown wide enough that nobody trusted the reporting at all. We rebuilt their measurement and attribution setup so that paid-media spend decisions could be tied back to actual revenue instead of [platform-reported conversions](/why-platform-reported-roas-overstates-results/). The rebuild didn't invent new sales—it revealed which spend was already working and which was being [credited to the wrong place](/attribution-models-compared-spend-to-revenue/). The foundation of that rebuild was a move from client-side to server-side tracking.
 
 ## What "Client-Side" Tracking Actually Means
 

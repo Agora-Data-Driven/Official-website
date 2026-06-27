@@ -10,7 +10,7 @@ draft: false
 
 Most advice about creative testing assumes one business, one audience, one channel: run variant A against variant B, keep the winner, repeat. That's useful, but it sidesteps a harder problem—making creative work across genuinely different verticals at the same time, on the same channel.
 
-We ran into that problem directly when Agora launched an LED-wall (DOOH) advertising offering. In its first month it took bookings across six verticals—food, music, pharmacy, beauty, printing, and influencers. Before going further, one honest distinction matters: that breadth of _bookings_ is a signal about demand for the ad space, not a measurement of which creatives performed best. We're not claiming a controlled creative experiment with measured winners and losers. What the launch gave us was something else—a clear view of how one channel's hard constraints collide with six very different messages, and that collision is what this framework is built on.
+We ran into that problem directly when [Agora launched an LED-wall (DOOH) advertising offering](/building-an-authentic-brand-identity/). In its first month it took bookings across six verticals—food, music, pharmacy, beauty, printing, and influencers. Before going further, one honest distinction matters: that breadth of _bookings_ is a signal about demand for the ad space, not a measurement of which creatives performed best. We're not claiming a controlled creative experiment with measured winners and losers. What the launch gave us was something else—a clear view of how one channel's hard constraints collide with six very different messages, and that collision is what this framework is built on.
 
 ## The Core Tension: One Format, Many Verticals
 
@@ -43,9 +43,9 @@ Score all six on one metric and five look like failures. That's the trap—and i
 
 ## Principle 3: Breadth of Demand Is Its Own Finding—But a Separate One
 
-Here's a finding the launch genuinely supports: six unlike verticals all chose to book the same format in its first month. That's evidence the ad space has broad rather than niche appeal—it's solving a problem common to very different businesses, namely the need for broad, local, glance-level awareness.
+Here's a finding the launch genuinely supports: six unlike verticals all chose to book the same format in its first month. That's evidence [the ad space has broad rather than niche appeal](/is-led-wall-dooh-advertising-worth-it/)—it's solving a problem common to very different businesses, namely the need for broad, local, glance-level awareness.
 
-Keep this distinct from creative performance. "Six verticals bought space" tells you about product-market fit for the channel; it does not tell you whether any particular creative worked. Both are useful, but conflating them is how marketers talk themselves into believing a sales result proves a creative result. When you test something new, look deliberately for _both_ signals—and label them honestly for what each one is.
+Keep this distinct from creative performance. "Six verticals bought space" tells you about product-market fit for the channel; it does not tell you whether any particular creative worked. Both are useful, but conflating them is how marketers talk themselves into believing a sales result proves a creative result. When you [test something new](/how-to-launch-a-new-paid-advertising-channel/), look deliberately for _both_ signals—and label them honestly for what each one is.
 
 ## Principle 4: A Shared Template Creates a More Controlled Test
 

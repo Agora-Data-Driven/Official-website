@@ -12,7 +12,7 @@ Add up the revenue each of your ad platforms claims to have generated. Now compa
 
 That isn't fraud. It's the predictable result of how return on ad spend (ROAS) is calculated and who is doing the calculating. Each platform is grading its own homework, and they're all claiming credit for the same sales.
 
-For one Agora client, this overstatement had quietly distorted years of budget decisions. We rebuilt their measurement and attribution setup so that paid-media spend could be tied back to actual revenue instead of platform-reported conversions. That didn't conjure new sales. It showed which spend was actually producing revenue the business could bank, and which had been coasting on credit it didn't earn.
+For one Agora client, this overstatement had quietly distorted years of budget decisions. We rebuilt their measurement and [attribution setup](/attribution-models-compared-spend-to-revenue/) so that paid-media spend could be tied back to actual revenue instead of platform-reported conversions. That didn't conjure new sales. It showed which spend was actually producing revenue the business could bank, and which had been coasting on credit it didn't earn.
 
 Here's why platform ROAS overstates results, and what to measure instead.
 
@@ -63,7 +63,7 @@ You don't need a perfect lab experiment to start moving in this direction. Three
 
 ## How the Rebuild Worked
 
-For the Agora client, this was a measurement and attribution rebuild, not a reporting tweak. We made the backend order record the single source of truth—the confirmed, booked orders the business actually fulfilled and got paid for. We changed how order data was collected so each platform was matched against those confirmed order values rather than its own pixel-fired events. Then we reconciled the two: for a given period, the revenue the platforms collectively claimed was checked line by line against the revenue the books recorded, and the difference was attributed back to overlap and modeling rather than left to inflate each channel's dashboard.
+For the Agora client, this was a measurement and attribution rebuild, not a reporting tweak. We made the backend order record the single source of truth—the confirmed, booked orders the business actually fulfilled and got paid for. We changed [how order data was collected](/server-side-vs-client-side-tracking-ga4/) so each platform was matched against those confirmed order values rather than its own pixel-fired events. Then we reconciled the two: for a given period, the revenue the platforms collectively claimed was checked line by line against the revenue the books recorded, and the difference was attributed back to overlap and modeling rather than left to inflate each channel's dashboard.
 
 With that in place, budgets stopped being judged by the numbers each channel reports about itself and started being judged against revenue the business could verify in its own books. That shifted spend toward channels producing incremental sales and away from ones that had been double-counting their way to a flattering dashboard.
 

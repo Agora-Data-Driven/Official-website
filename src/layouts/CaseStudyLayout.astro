@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Container from '@components/Container.astro';
-import Button from '@components/Button.astro';
-import { cta } from '@data/cta';
 
 interface Props {
   eyebrow?: string;
@@ -17,7 +15,7 @@ const { eyebrow, title, summary, heroImage, heroAlt, metrics } = Astro.props;
 
 <BaseLayout title={title} description={summary} ogImage={heroImage}>
   <section class="border-line from-tint/40 to-canvas border-b bg-linear-to-b">
-    <Container size="narrow" class="py-12 lg:py-16">
+    <Container size="narrow" class="pt-10 pb-8 lg:pt-12 lg:pb-10">
       <a href="/agora-portfolio/" class="text-brand-600 hover:text-brand-700 text-sm font-medium"
         >&larr; Back to portfolio</a
       >
@@ -33,7 +31,7 @@ const { eyebrow, title, summary, heroImage, heroAlt, metrics } = Astro.props;
 
   {
     heroImage && (
-      <Container size="narrow" class="pt-10">
+      <Container size="narrow" class="pt-6 lg:pt-8">
         <img
           src={heroImage}
           alt={heroAlt ?? ''}
@@ -71,14 +69,8 @@ const { eyebrow, title, summary, heroImage, heroAlt, metrics } = Astro.props;
     <Container class="py-12 text-center">
       <h2 class="text-ink text-2xl font-bold">Want results like these?</h2>
       <p class="text-muted mx-auto mt-2 max-w-lg">
-        Let's turn your data into sales. Get a custom quote or hire us on Upwork.
+        Let's turn your data into sales. Hire us on Upwork.
       </p>
-      <div class="mt-6 flex flex-wrap justify-center gap-4">
-        <Button href={cta.becomeClient.href} external size="lg">{cta.becomeClient.label}</Button>
-        <Button href={cta.customQuote.href} external variant="secondary" size="lg">
-          {cta.customQuote.label}
-        </Button>
-      </div>
     </Container>
   </section>
 </BaseLayout>

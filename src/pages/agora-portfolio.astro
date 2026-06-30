@@ -24,7 +24,7 @@ const postCaseStudies = (
       <p class="text-brand-600 text-sm font-semibold tracking-wide uppercase">Portfolio</p>
       <h1 class="text-ink mt-2 max-w-3xl text-4xl font-bold sm:text-5xl">Explore our portfolio</h1>
       <p class="text-muted mt-4 max-w-2xl text-lg">
-        Our portfolio isn't just a list of projects — it's proof of how we solve problems, drive
+        Our portfolio isn't just a list of projects, it's proof of how we solve problems, drive
         growth, and adapt fast. Every campaign reflects a challenge we've tackled, a strategy we've
         shaped, and the results we've delivered.
       </p>
@@ -42,14 +42,17 @@ const postCaseStudies = (
       </SectionHeading>
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         {
-          postCaseStudies.map((post) => (
-            <article class="border-line bg-surface shadow-card hover:shadow-pop flex flex-col overflow-hidden rounded-2xl border transition-shadow">
+          postCaseStudies.map((post, i) => (
+            <article
+              class="card-hover reveal border-line bg-surface shadow-card hover:shadow-pop flex flex-col overflow-hidden rounded-2xl border transition-all duration-300"
+              style={`--reveal-delay: ${i * 80}ms`}
+            >
               {post.data.heroImage && (
-                <a href={`/${post.id}/`} class="block">
+                <a href={`/${post.id}/`} class="block overflow-hidden bg-canvas">
                   <img
                     src={post.data.heroImage}
                     alt=""
-                    class="bg-canvas aspect-[16/10] w-full object-cover"
+                    class="aspect-[16/10] w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
                 </a>
@@ -62,22 +65,28 @@ const postCaseStudies = (
                 <p class="text-muted mt-2 flex-1 text-sm">{post.data.excerpt}</p>
                 <a
                   href={`/${post.id}/`}
-                  class="text-brand-600 hover:text-brand-700 mt-4 inline-flex items-center gap-1 text-sm font-semibold"
+                  class="text-brand-600 hover:text-brand-700 mt-4 inline-flex items-center gap-1 text-sm font-semibold transition-colors"
                 >
-                  Read the story <span aria-hidden="true">&rarr;</span>
+                  Read the story
+                  <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+                    →
+                  </span>
                 </a>
               </div>
             </article>
           ))
         }
         {
-          caseStudies.map((c) => (
-            <article class="border-line bg-surface shadow-card hover:shadow-pop flex flex-col overflow-hidden rounded-2xl border transition-shadow">
-              <a href={`/${c.slug}/`} class="block">
+          caseStudies.map((c, i) => (
+            <article
+              class="card-hover reveal border-line bg-surface shadow-card hover:shadow-pop flex flex-col overflow-hidden rounded-2xl border transition-all duration-300"
+              style={`--reveal-delay: ${(postCaseStudies.length + i) * 80}ms`}
+            >
+              <a href={`/${c.slug}/`} class="block overflow-hidden bg-canvas">
                 <img
-                  src={c.heroImage}
+                  src={c.cardImage ?? c.image ?? c.heroImage}
                   alt=""
-                  class="bg-canvas aspect-[16/10] w-full object-cover"
+                  class="aspect-[16/10] w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
               </a>
@@ -89,9 +98,12 @@ const postCaseStudies = (
                 <p class="text-muted mt-2 flex-1 text-sm">{c.summary}</p>
                 <a
                   href={`/${c.slug}/`}
-                  class="text-brand-600 hover:text-brand-700 mt-4 inline-flex items-center gap-1 text-sm font-semibold"
+                  class="text-brand-600 hover:text-brand-700 mt-4 inline-flex items-center gap-1 text-sm font-semibold transition-colors"
                 >
-                  Learn more <span aria-hidden="true">&rarr;</span>
+                  Learn more
+                  <span class="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+                    →
+                  </span>
                 </a>
               </div>
             </article>
@@ -106,15 +118,16 @@ const postCaseStudies = (
     <Container>
       <SectionHeading eyebrow="Competitions" title="Skill meets growth">
         <p class="text-muted mt-3">
-          We regularly enter industry analytics challenges to stay sharp — and we win.
+          We regularly enter industry analytics challenges to stay sharp, and we win.
         </p>
       </SectionHeading>
       <div class="mt-10 grid gap-6 md:grid-cols-2">
         {
-          competitions.map((c) => (
+          competitions.map((c, i) => (
             <a
               href={`/${c.slug}/`}
-              class="border-line bg-canvas hover:shadow-pop flex flex-col rounded-2xl border p-7 transition-shadow"
+              class="card-hover reveal border-line bg-canvas hover:shadow-pop flex flex-col rounded-2xl border p-7 shadow-card transition-all duration-300"
+              style={`--reveal-delay: ${i * 80}ms`}
             >
               <span class="text-brand-600 text-3xl font-bold">{c.placement}</span>
               <h3 class="text-ink mt-3 text-xl font-semibold">{c.cardTitle}</h3>

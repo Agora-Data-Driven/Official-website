@@ -1,5 +1,5 @@
 /**
- * Client testimonials — sourced from the Upwork agency profile.
+ * Client testimonials, sourced from the Upwork agency profile.
  * Verbatim from the live site. These are anonymous on Upwork; do NOT invent
  * names, companies, or avatars.
  */
@@ -16,7 +16,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'Working with Agora Data Driven was seamless—their skills in Google Colab, Looker Studio, and KPI reporting gave us exactly what we needed. Highly professional and insightful.',
+      'Working with Agora Data Driven was seamless, their skills in Google Colab, Looker Studio, and KPI reporting gave us exactly what we needed. Highly professional and insightful.',
     source: 'Upwork client',
   },
   {
@@ -31,7 +31,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      'Superb data visualization for eCommerce—clear, responsive, and highly effective visuals that guided our decision-making.',
+      'Superb data visualization for eCommerce, clear, responsive, and highly effective visuals that guided our decision-making.',
     source: 'Upwork client',
   },
   {

@@ -41,10 +41,10 @@ const thumbByCategory: Record<string, string> = {
   'Careers & Skill-Building': 'course-review',
 };
 
-// Posts with bespoke custom landing pages — exclude from the carousel.
+// Posts with bespoke custom landing pages, exclude from the carousel.
 const BESPOKE_SLUGS = new Set(['building-an-authentic-brand-identity']);
 
-// Slugs already curated in blogData.ts — don't double-render.
+// Slugs already curated in blogData.ts, don't double-render.
 const curatedSlugs = new Set(blogPosts.map((p) => p.slug));
 
 // Convert any markdown post not already in blogData.ts into a BlogPost card.
@@ -118,7 +118,7 @@ const featuredPost = ddmPosts.find((p) => p.featured) ?? ddmPosts[0];
             Insights that<br /><span class="text-gradient">drive growth.</span>
           </h1>
           <p class="text-muted mt-4 max-w-md text-base leading-relaxed sm:text-[1.0625rem]">
-            Real-world lessons on marketing, data, and growth — written by practitioners, for
+            Real-world lessons on marketing, data, and growth, written by practitioners, for
             practitioners.
           </p>
 
@@ -877,7 +877,7 @@ const featuredPost = ddmPosts.find((p) => p.featured) ?? ddmPosts[0];
     applyFilters();
   });
 
-  // Clear filters — handles both the single clear button (future global) and
+  // Clear filters, handles both the single clear button (future global) and
   // the per-section clear buttons inside the empty states.
   function clearAll() {
     activeTopic = 'all';

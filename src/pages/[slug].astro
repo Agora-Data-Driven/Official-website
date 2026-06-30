@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   // src/pages/building-an-authentic-brand-identity.astro, so it opts out of the
   // generic PostLayout route here (its Markdown stays the source of truth for
   // the blog listing card + SEO frontmatter). Excluding it avoids a
-  // duplicate-route build collision. Declared inside getStaticPaths — Astro
+  // duplicate-route build collision. Declared inside getStaticPaths, Astro
   // evaluates this function in isolation from module scope.
   const bespokeSlugs = new Set(['building-an-authentic-brand-identity']);
   const posts = await getCollection('posts', ({ data }) => !data.draft);

@@ -1,14 +1,14 @@
 /**
- * Blog landing page data — source of truth for what appears on /blog/.
+ * Blog landing page data, source of truth for what appears on /blog/.
  *
  * Posts that already have a real markdown file in src/content/posts/ carry their
  * canonical slug href so read-time is calculated from the body. Posts without a
  * real page yet link to the most relevant existing route (category hub or
- * portfolio) — no broken links.
+ * portfolio), no broken links.
  *
  * Adding a new post:
  *   1. Add an entry here with `section`, `thumbnailVariant`, `topic`, `industry`.
- *   2. Create the markdown file at src/content/posts/<slug>.md — it auto-appears.
+ *   2. Create the markdown file at src/content/posts/<slug>.md, it auto-appears.
  *   3. Update `href` from the placeholder to `/<slug>/`.
  */
 
@@ -21,7 +21,7 @@ export interface BlogPost {
   section: 'data-driven-marketing' | 'case-studies';
   /** Display category label shown on the card badge. */
   category: string;
-  /** Used for topic filter — maps to the topic-filter dropdown values. */
+  /** Used for topic filter, maps to the topic-filter dropdown values. */
   topic: string;
   /** Used for industry filter. Use 'All industries' when not industry-specific. */
   industry: string;
